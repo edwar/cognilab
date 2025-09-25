@@ -1,0 +1,350 @@
+---
+// Navbar.astro
+---
+
+<header role="banner" class="fixed top-0 left-0 right-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/40 shadow-sm">
+  <nav
+    role="navigation"
+    aria-label="Navegación principal"
+  >
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a 
+            href="/#home" 
+            class="flex items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+            aria-label="Ir al inicio - Logo de la empresa"
+          >
+            <!-- Logo placeholder - reemplazar con tu logo real -->
+            <div class="h-8 w-8 p-4 rounded-md bg-primary items-center justify-center flex sm:hidden" aria-hidden="true">
+              <span class="text-primary-foreground font-bold text-xl">SL</span>
+            </div>
+            <span class="font-bold text-2xl text-primary hidden sm:block">Ska</span>
+            <span class="font-bold text-2xl text-foreground hidden sm:block">Lab</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:block" role="menubar">
+          <ul class="ml-10 flex items-baseline space-x-8" role="none">
+            <li role="none">
+              <a 
+                href="#features" 
+                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+                role="menuitem"
+              >
+                Funcionalidades
+              </a>
+            </li>
+            <li role="none">
+              <a 
+                href="#about" 
+                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+                role="menuitem"
+              >
+                Nosotros
+              </a>
+            </li>
+            <li role="none">
+              <a 
+                href="#social-proof" 
+                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+                role="menuitem"
+              >
+                Testimonios
+              </a>
+            </li>
+            <li role="none">
+              <a 
+                href="#how-it-works" 
+                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+                role="menuitem"
+              >
+                Cómo Funciona
+              </a>
+            </li>
+            <li role="none">
+              <a 
+                href="#pricing" 
+                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+                role="menuitem"
+              >
+                Precios
+              </a>
+            </li>
+            <li role="none">
+              <a 
+                href="#faqs" 
+                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+                role="menuitem"
+              >
+                FAQ
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="lg:hidden">
+          <button 
+            type="button" 
+            class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-accent focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary transition-colors duration-200"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="Abrir menú de navegación"
+          >
+            <span class="sr-only">Abrir menú principal</span>
+            <!-- Hamburger icon -->
+            <svg 
+              class="hamburger-icon block h-6 w-6" 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Close icon -->
+            <svg 
+              class="close-icon hidden h-6 w-6" 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div 
+      class="mobile-menu hidden lg:hidden" 
+      id="mobile-menu"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="mobile-menu-button"
+    >
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t shadow-lg">
+        <a 
+          href="#features" 
+          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          role="menuitem"
+        >
+          Funcionalidades
+        </a>
+        <a 
+          href="#about" 
+          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          role="menuitem"
+        >
+          Nosotros
+        </a>
+        <a 
+          href="#social-proof" 
+          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          role="menuitem"
+        >
+          Testimonios
+        </a>
+        <a 
+          href="#how-it-works" 
+          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          role="menuitem"
+        >
+          Cómo Funciona
+        </a>
+        <a 
+          href="#pricing" 
+          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          role="menuitem"
+        >
+          Precios
+        </a>
+        <a 
+          href="#faqs" 
+          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          role="menuitem"
+        >
+          FAQ
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.querySelector('.mobile-menu-button') as HTMLButtonElement;
+    const mobileMenu = document.querySelector('.mobile-menu') as HTMLElement;
+    const hamburgerIcon = document.querySelector('.hamburger-icon') as HTMLElement;
+    const closeIcon = document.querySelector('.close-icon') as HTMLElement;
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle menu visibility
+        mobileMenu.classList.toggle('hidden');
+        
+        // Toggle icons
+        hamburgerIcon?.classList.toggle('hidden');
+        closeIcon?.classList.toggle('hidden');
+        
+        // Update aria-expanded and aria-label
+        mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+        mobileMenuButton.setAttribute('aria-label', 
+          isExpanded ? 'Abrir menú de navegación' : 'Cerrar menú de navegación'
+        );
+        
+        // Focus management
+        if (!isExpanded) {
+          // Menu is opening - focus first menu item
+          setTimeout(() => {
+            const firstMenuItem = mobileMenu.querySelector('a');
+            firstMenuItem?.focus();
+          }, 100);
+        }
+      });
+      
+      // Keyboard navigation for mobile menu
+      mobileMenuButton.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          mobileMenuButton.click();
+        }
+      });
+    }
+    
+    // Close mobile menu when clicking on links
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const target = event.target as Element;
+      if (mobileMenu && 
+          !mobileMenu.contains(target) && 
+          !mobileMenuButton?.contains(target) &&
+          !mobileMenu.classList.contains('hidden')) {
+        closeMobileMenu();
+      }
+    });
+    
+    // Close mobile menu with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && 
+          mobileMenu && 
+          !mobileMenu.classList.contains('hidden')) {
+        closeMobileMenu();
+        mobileMenuButton?.focus();
+      }
+    });
+    
+    // Trap focus within mobile menu when open
+    mobileMenu?.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        const focusableElements = mobileMenu.querySelectorAll('a[href]');
+        const firstFocusable = focusableElements[0] as HTMLElement;
+        const lastFocusable = focusableElements[focusableElements.length - 1] as HTMLElement;
+        
+        if (e.shiftKey && document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    });
+    
+    function closeMobileMenu() {
+      mobileMenu?.classList.add('hidden');
+      hamburgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+      mobileMenuButton?.setAttribute('aria-label', 'Abrir menú de navegación');
+    }
+    
+    // Skip to main content functionality
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.textContent = 'Saltar al contenido principal';
+    skipLink.className = 'sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-primary text-primary-foreground px-4 py-2 z-[100] focus:outline-none focus:ring-2 focus:ring-primary-foreground';
+    document.body.insertBefore(skipLink, document.body.firstChild);
+  });
+</script>
+
+<style>
+  /* Screen reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Smooth transitions for mobile menu */
+  .mobile-menu {
+    animation: slideDown 0.2s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu {
+      animation: none;
+    }
+    
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .mobile-menu {
+      border-width: 2px;
+    }
+  }
+</style>

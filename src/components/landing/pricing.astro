@@ -1,0 +1,76 @@
+---
+// pricing.astro
+import { Icon } from "astro-icon/components";
+
+---
+
+<section id="pricing" class="py-16 sm:py-24">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+      Precios
+    </h2>
+    <p class="mt-4 text-lg text-muted-foreground">
+      Empieza a automatizar tus procesos con inteligencia artificial sin costo inicial. Solo pagas por mantener tu servicio activo y funcionando a la perfección.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl transition-transform transform hover:scale-105">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
+          Crea tu proyecto sin costo inicial
+        </h3>
+        <p class="mt-4 text-gray-600 dark:text-gray-300">
+          Entendemos que cada negocio es único. Por eso, el desarrollo y la implementación de tu proyecto de automatización con IA son <strong>100% gratuitos</strong>. Trabajaremos contigo para diseñar la solución que necesitas, sin que tengas que invertir un solo dólar por adelantado.
+        </p>
+        <div class="mt-6">
+          <!-- Reemplazado de "mdi:lightbulb-on-outline" a "lucide:lightbulb" -->
+          <Icon name="lucide:lightbulb" class="w-16 h-16 text-indigo-600 dark:text-indigo-400 mx-auto" aria-hidden="true" />
+        </div>
+      </div>
+
+      <div class="bg-indigo-600 p-8 rounded-2xl shadow-xl text-white transition-transform transform hover:scale-105">
+        <h3 class="text-2xl font-semibold">
+          Mantenimiento mensual
+        </h3>
+        <p class="mt-4 text-indigo-100">
+          Una vez que tu automatización esté lista y funcionando, el único costo es una cuota mensual para el <strong>mantenimiento del servicio</strong>.
+        </p>
+        <div class="mt-6">
+          <div class="flex items-center justify-center">
+            <span class="text-5xl sm:text-6xl font-extrabold tracking-tight">
+              $25
+            </span>
+            <span class="ml-2 text-xl font-medium">
+              /mes
+            </span>
+          </div>
+          <p class="mt-2 text-sm text-indigo-200">
+            Este valor cubre la mayoría de las automatizaciones.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 text-left">
+      <h3 class="text-2xl font-semibold text-foreground">
+        ¿Qué incluye el mantenimiento?
+      </h3>
+      <ul role="list" class="mt-6 space-y-4 text-gray-600 dark:text-gray-300">
+        <li class="flex items-start">
+          <!-- Reemplazado de "mdi:check-circle" a "lucide:check-circle" -->
+          <Icon name="lucide:check-circle" class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-400 mr-2 mt-1" aria-hidden="true" />
+          <span><strong>Monitoreo 24/7:</strong> Vigilamos tu automatización para asegurar su rendimiento.</span>
+        </li>
+        <li class="flex items-start">
+          <!-- Reemplazado de "mdi:update" a "lucide:refresh-cw" -->
+          <Icon name="lucide:refresh-cw" class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-400 mr-2 mt-1" aria-hidden="true" />
+          <span><strong>Actualizaciones automáticas:</strong> Mantienes tu servicio siempre al día con las últimas mejoras.</span>
+        </li>
+        <li class="flex items-start">
+          <!-- Reemplazado de "mdi:lifebuoy" a "lucide:life-buoy" -->
+          <Icon name="lucide:life-buoy" class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-400 mr-2 mt-1" aria-hidden="true" />
+          <span><strong>Soporte técnico:</strong> Acceso a nuestro equipo para resolver cualquier duda.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

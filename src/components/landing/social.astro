@@ -1,0 +1,71 @@
+---
+import { Icon } from "lucide-react";
+import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
+
+// Social.astro
+
+const clientLogos: string[] = [
+  // "/logos/logo1.svg",
+];
+
+const stats = [
+  {
+    number: "+85%",
+    description: "Reducción en tiempo de procesamiento de datos",
+  },
+  {
+    number: "$1.2M+",
+    description: "Ahorros generados para nuestros clientes",
+  },
+  {
+    number: "99.9%",
+    description: "Tasa de precisión en la automatización de tareas",
+  },
+  {
+    number: "500K+",
+    description: "Horas de trabajo manual automatizadas",
+  },
+];
+---
+
+<section id="social-proof" class="py-16 md:py-24 px-8">
+  <div class="container mx-auto px-4 max-w-6xl">
+
+    {clientLogos.length > 1 && <div class="mb-16 md:mb-20">
+      <h3 class="text-center text-xl font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-8">
+        Confían en nosotros
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
+        {clientLogos.map((logo) => (
+          <img
+            src={logo}
+            alt="Logo del cliente"
+            class="h-10 md:h-12 w-auto grayscale opacity-70 hover:opacity-100 transition-opacity duration-300 dark:invert"
+            loading="lazy"
+          />
+        ))}
+      </div>
+    </div>}
+
+    <div>
+      <h3 class="text-center text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-12">
+        Resultados que hablan por sí mismos
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        {stats.map((stat) => (
+          <Card className="relative bg-slate-50 border rounded-xl shadow-2xl overflow-hidden transform -rotate-1 hover:rotate-0 hover:shadow-2xl hover:scale-105 transition-transform duration-500">
+            <CardHeader>
+              <CardTitle className="text-4xl md:text-5xl font-extrabold text-primary">
+                {stat.number}
+              </CardTitle>
+            </CardHeader>
+            <CardDescription className="px-6 pb-6 text-sm md:text-base text-accent-foreground">
+              {stat.description}
+            </CardDescription>
+          </Card>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

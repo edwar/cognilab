@@ -1,0 +1,89 @@
+---
+// Features.astro
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Icon } from "astro-icon/components";
+
+// Datos actualizados para una agencia de automatización con IA
+const features = [
+  {
+    icon: "lucide:bot",
+    title: "Automatización Inteligente",
+    description:
+      "Implementamos flujos de trabajo autónomos que se adaptan y optimizan, liberando a tu equipo de tareas repetitivas.",
+  },
+  {
+    icon: "lucide:brain",
+    title: "Análisis Predictivo",
+    description:
+      "Utilizamos modelos de IA para predecir tendencias, identificar oportunidades de mercado y tomar decisiones basadas en datos.",
+  },
+  {
+    icon: "lucide:zap",
+    title: "Integraciones Sin Esfuerzo",
+    description:
+      "Conectamos tus sistemas existentes para crear un ecosistema unificado y eficiente, sin interrupciones en tus operaciones.",
+  },
+  {
+    icon: "lucide:shield-check",
+    title: "Seguridad y Cumplimiento",
+    description:
+      "Nuestras soluciones de IA están diseñadas con la seguridad y la privacidad en mente, garantizando la protección de tus datos.",
+  },
+  {
+    icon: "lucide:rocket",
+    title: "Escalabilidad Dinámica",
+    description:
+      "Las soluciones crecen contigo. Añade o modifica procesos fácilmente para que la IA se adapte al crecimiento de tu negocio.",
+  },
+  {
+    icon: "lucide:trending-up",
+    title: "Optimización Continua",
+    description:
+      "Nuestros algoritmos de aprendizaje automático mejoran constantemente, garantizando que tu negocio opere con la máxima eficiencia.",
+  },
+];
+---
+
+<section
+  id="features"
+  class="py-16 md:py-24 px-8"
+>
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-12 md:mb-16">
+      <h2
+        class="text-3xl md:text-5xl font-bold text-foreground dark:text-primary-foreground leading-tight mb-4"
+      >
+        Impulsa tu Negocio con la Inteligencia Artificial
+      </h2>
+      <p class="text-lg text-primary max-w-3xl mx-auto">
+        Descubre cómo nuestras soluciones de IA y automatización transforman la
+        eficiencia y el crecimiento de tu empresa.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        features.map((feature) => (
+          <Card className="relative bg-slate-50 border rounded-xl shadow-2xl overflow-hidden transform -rotate-1 hover:rotate-0 hover:shadow-2xl hover:scale-105 transition-transform duration-500">
+            <CardHeader>
+              <div class="mb-4 text-foreground">
+                <Icon name={feature.icon} class="w-10 h-10" />
+              </div>
+              <CardTitle className="text-xl font-semibold text-foreground">
+                {feature.title}
+              </CardTitle>
+            </CardHeader>
+            <CardDescription className="px-6 pb-6 text-foreground">
+              {feature.description}
+            </CardDescription>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>
