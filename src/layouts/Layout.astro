@@ -5,7 +5,7 @@ import '../styles/global.css'
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 
@@ -23,11 +23,15 @@ import '../styles/global.css'
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<meta name="apple-mobile-web-app-title" content="SkaLab" />
 
-		<!-- Performance and Security -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!-- Zoom Control for Mobile -->
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="msapplication-TileColor" content="#6366f1" />
+
+		<!-- Prevent zoom on input focus (iOS) -->
 		<meta name="format-detection" content="telephone=no" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<meta name="msapplication-tap-highlight" content="no" />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
@@ -146,6 +150,59 @@ import '../styles/global.css'
         once: true, // Animaciones solo una vez
         duration: 800, // Duración de la animación en ms
       });
+
+      // Mobile zoom and orientation control
+      (function() {
+        'use strict';
+
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+          const now = (new Date()).getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        }, false);
+
+        // Handle orientation change
+        window.addEventListener('orientationchange', function() {
+          // Small delay to allow orientation to settle
+          setTimeout(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 100);
+        });
+
+        // Prevent iOS zoom on input focus
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(function(input) {
+          input.addEventListener('focus', function() {
+            // Prevent zoom by temporarily disabling viewport scaling
+            const viewport = document.querySelector('meta[name=viewport]') as HTMLMetaElement | null;
+            if (viewport) {
+              viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover');
+            }
+          });
+
+          input.addEventListener('blur', function() {
+            // Restore normal viewport scaling
+            const viewport = document.querySelector('meta[name=viewport]') as HTMLMetaElement | null;
+            if (viewport) {
+              viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover');
+            }
+          });
+        });
+
+        // Handle viewport height on mobile browsers
+        function setVH() {
+          const vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+      })();
     </script>
 		<slot />
 	</body>
@@ -162,5 +219,95 @@ import '../styles/global.css'
   /* Smooth scroll behavior for the entire page */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Mobile Zoom Control */
+  @media screen and (max-width: 768px) {
+    /* Prevent zoom on input focus in iOS */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+
+    /* Prevent zoom on buttons and interactive elements */
+    button,
+    .button,
+    [role="button"],
+    a[role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+      touch-action: manipulation;
+    }
+
+    /* Ensure text remains readable */
+    body {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Prevent horizontal scroll */
+    body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* Optimize for touch interactions */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      tap-highlight-color: transparent;
+    }
+  }
+
+  /* High DPI displays */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure sharp graphics on retina displays */
+    .logo,
+    .icon {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
+
+  /* Landscape orientation on mobile */
+  @media screen and (max-height: 500px) and (orientation: landscape) {
+    /* Adjust for landscape mode */
+    .hero-section {
+      min-height: 100vh;
+      padding-top: 80px; /* Account for fixed navbar */
+    }
+  }
+
+  /* Prevent text selection issues on mobile */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Improve scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Safe area handling for devices with notches */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-area-right {
+    padding-right: env(safe-area-inset-right);
   }
 </style>

@@ -159,4 +159,70 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Mobile-first responsive design */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Prevent zoom on orientation change */
+  @media screen and (orientation: portrait) {
+    html {
+      transform: rotate(0deg);
+    }
+  }
+
+  @media screen and (orientation: landscape) {
+    html {
+      transform: rotate(0deg);
+    }
+  }
+
+  /* Touch-friendly interactions */
+  @media (hover: none) and (pointer: coarse) {
+    /* Increase touch target sizes */
+    a, button, input, textarea, select {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .hover\:scale-105:hover {
+      transform: none;
+    }
+
+    /* Optimize for touch scrolling */
+    body {
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+  }
+
+  /* Prevent iOS bounce scroll */
+  body {
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure proper scaling */
+  @media screen and (max-width: 768px) {
+    /* Prevent font scaling issues */
+    html {
+      font-size: 16px;
+    }
+
+    /* Ensure images don't break layout */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Prevent horizontal scroll */
+    * {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
 }
