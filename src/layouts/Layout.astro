@@ -1,14 +1,142 @@
 ---
-import '../styles/global.css' 
+import '../styles/global.css'
 ---
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<!-- SEO Meta Tags -->
+		<title>SkaLab - Automatización Inteligente con IA para tu Negocio</title>
+		<meta name="description" content="Transforma tu negocio con SkaLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa." />
+		<meta name="keywords" content="automatización, inteligencia artificial, IA, procesos empresariales, productividad, eficiencia, transformación digital, startup, tecnología" />
+		<meta name="author" content="SkaLab" />
+		<meta name="robots" content="index, follow" />
+
+		<!-- Mobile Optimization -->
+		<meta name="theme-color" content="#6366f1" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="apple-mobile-web-app-title" content="SkaLab" />
+
+		<!-- Performance and Security -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content="SkaLab - Automatización Inteligente con IA para tu Negocio" />
+		<meta property="og:description" content="Transforma tu negocio con SkaLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa." />
+		<meta property="og:image" content="/og-image.jpg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="SkaLab - Automatización con IA" />
+		<meta property="og:site_name" content="SkaLab" />
+		<meta property="og:locale" content="es_ES" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content="SkaLab - Automatización Inteligente con IA para tu Negocio" />
+		<meta property="twitter:description" content="Transforma tu negocio con SkaLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa." />
+		<meta property="twitter:image" content="/og-image.jpg" />
+		<meta property="twitter:image:alt" content="SkaLab - Automatización con IA" />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href={Astro.url} />
+
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "SkaLab",
+				"description": "Startup de automatización con inteligencia artificial para procesos empresariales",
+				"url": "https://skalab.dev",
+				"logo": "https://skalab.dev/logo.svg",
+				"foundingDate": "2024",
+				"sameAs": [
+					"https://twitter.com/skalab",
+					"https://linkedin.com/company/skalab"
+				],
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"contactType": "customer service",
+					"availableLanguage": "Spanish"
+				},
+				"areaServed": "Worldwide",
+				"serviceType": "AI Automation Services"
+			}
+		</script>
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "SkaLab",
+				"description": "Automatización inteligente con IA para tu negocio",
+				"url": "https://skalab.dev",
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": "https://skalab.dev/search?q={search_term_string}",
+					"query-input": "required name=search_term_string"
+				}
+			}
+		</script>
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Service",
+				"name": "Automatización con Inteligencia Artificial",
+				"description": "Servicios de automatización de procesos empresariales usando IA",
+				"provider": {
+					"@type": "Organization",
+					"name": "SkaLab"
+				},
+				"serviceType": "AI Automation",
+				"areaServed": "Worldwide",
+				"hasOfferCatalog": {
+					"@type": "OfferCatalog",
+					"name": "Servicios de Automatización",
+					"itemListElement": [
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Análisis y Descubrimiento",
+								"description": "Evaluación de procesos actuales para identificar oportunidades de automatización"
+							}
+						},
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Diseño y Desarrollo",
+								"description": "Desarrollo de soluciones de IA personalizadas"
+							}
+						},
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Implementación y Despliegue",
+								"description": "Integración de soluciones en sistemas existentes"
+							}
+						}
+					]
+				}
+			}
+		</script>
+
+		<!-- AOS CSS -->
 		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 	</head>
 	<body class="bg-background">

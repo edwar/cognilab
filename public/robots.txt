@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://skalab.dev/sitemap.xml
+
+# Specific directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block access to admin areas (if any)
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+
+# Allow important resources
+User-agent: *
+Allow: /assets/
+Allow: /images/
+Allow: /favicon.svg
