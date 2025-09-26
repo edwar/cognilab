@@ -4,7 +4,7 @@
 
 <section 
   id="home" 
-  class="relative min-h-screen flex items-center justify-center mt-16 sm:mt-0 overflow-hidden bg-gradient-to-br from-background via-background to-muted/20"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20"
   aria-labelledby="hero-heading"
 >
   <!-- Background Pattern -->
@@ -32,16 +32,16 @@
         <!-- Main Headline -->
         <h1
           id="hero-heading"
-          class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight"
+          class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-4 sm:mb-6 leading-tight sm:leading-tight text-balance"
         >
           Transforma tu
           <span class="text-primary relative">
             negocio
-            <svg class="absolute -bottom-1 left-0 w-full h-3 text-foreground" aria-hidden="true">
+            <svg class="absolute -bottom-1 left-0 w-full h-1 sm:h-2 md:h-3 text-primary" aria-hidden="true">
               <path d="M 10 10 C 50 8, 150 12, 190 10"
                     stroke="currentColor"
-                    stroke-width="4"
-                    fill="currentColor"
+                    stroke-width="2 sm:3 md:4"
+                    fill="none"
                     stroke-linecap="round" />
             </svg>
           </span>
@@ -49,23 +49,23 @@
         </h1>
 
         <!-- Subheadline -->
-        <p class="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+        <p class="text-sm xs:text-base sm:text-lg md:text-xl text-muted-foreground/90 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed sm:leading-relaxed px-2 sm:px-0 text-balance">
           Automatiza tus procesos, mejora la productividad y escala tu empresa con nuestras soluciones integradas diseñadas para el éxito empresarial.
         </p>
 
         <!-- Social Proof Numbers -->
-        <div class="grid grid-cols-3 gap-6 text-center lg:text-left">
-          <div>
-            <div class="text-2xl sm:text-3xl font-bold text-foreground">5,000+</div>
-            <div class="text-sm text-muted-foreground">Empresas confían</div>
+        <div class="grid grid-cols-3 gap-3 sm:gap-6 text-center lg:text-left">
+          <div class="space-y-1">
+            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-foreground leading-tight">5,000+</div>
+            <div class="text-xs sm:text-sm text-muted-foreground/80 leading-tight">Empresas confían</div>
           </div>
-          <div>
-            <div class="text-2xl sm:text-3xl font-bold text-foreground">99.9%</div>
-            <div class="text-sm text-muted-foreground">Uptime garantizado</div>
+          <div class="space-y-1">
+            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-foreground leading-tight">99.9%</div>
+            <div class="text-xs sm:text-sm text-muted-foreground/80 leading-tight">Uptime garantizado</div>
           </div>
-          <div>
-            <div class="text-2xl sm:text-3xl font-bold text-foreground">24/7</div>
-            <div class="text-sm text-muted-foreground">Soporte técnico</div>
+          <div class="space-y-1">
+            <div class="text-xl sm:text-2xl md:text-3xl font-bold text-foreground leading-tight">24/7</div>
+            <div class="text-xs sm:text-sm text-muted-foreground/80 leading-tight">Soporte técnico</div>
           </div>
         </div>
       </div>

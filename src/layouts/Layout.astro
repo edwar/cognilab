@@ -143,7 +143,7 @@ import '../styles/global.css'
 		<!-- AOS CSS -->
 		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 	</head>
-	<body class="bg-background">
+	<body class="bg-background text-foreground antialiased leading-relaxed">
 		<script>
       import AOS from 'aos';
       AOS.init({
@@ -205,7 +205,7 @@ import '../styles/global.css'
       })();
     </script>
 		<slot />
-	</body>
+		</body>
 </html>
 
 <style>
@@ -221,44 +221,109 @@ import '../styles/global.css'
     scroll-behavior: smooth;
   }
 
-  /* Mobile Zoom Control */
+  /* Enhanced Mobile Typography for Better Readability */
   @media screen and (max-width: 768px) {
-    /* Prevent zoom on input focus in iOS */
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="password"],
-    textarea,
-    select {
-      font-size: 16px !important;
-    }
-
-    /* Prevent zoom on buttons and interactive elements */
-    button,
-    .button,
-    [role="button"],
-    a[role="button"] {
-      min-height: 44px;
-      min-width: 44px;
-      touch-action: manipulation;
-    }
-
-    /* Ensure text remains readable */
+    /* Base typography improvements */
     body {
       font-size: 16px;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      font-weight: 400;
+    }
+
+    /* Headings optimization for mobile */
+    h1 {
+      font-size: 1.75rem;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.875rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.125rem;
+      line-height: 1.35;
+      margin-bottom: 0.625rem;
+    }
+
+    h5, h6 {
+      font-size: 1rem;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Paragraph and text improvements */
+    p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      letter-spacing: 0.005em;
+    }
+
+    /* List improvements */
+    ul, ol {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
       line-height: 1.6;
     }
 
-    /* Prevent horizontal scroll */
-    body {
-      overflow-x: hidden;
-      width: 100%;
+    /* Better text rendering */
+    body, p, h1, h2, h3, h4, h5, h6 {
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Optimize for touch interactions */
-    * {
-      -webkit-tap-highlight-color: transparent;
-      tap-highlight-color: transparent;
+    /* Improved contrast for better readability */
+    .text-muted-foreground {
+      opacity: 0.85;
+    }
+
+    /* Better spacing for readability */
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Optimize button text for mobile */
+    button {
+      font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  /* Tablet optimizations */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    body {
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 1.875rem;
+      line-height: 1.2;
     }
   }
 
