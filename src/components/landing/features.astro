@@ -1,5 +1,5 @@
 ---
-// Features.astro
+// Services.astro
 import {
   Card,
   CardHeader,
@@ -8,82 +8,113 @@ import {
 } from "@/components/ui/card";
 import { Icon } from "astro-icon/components";
 
-// Datos actualizados para una agencia de automatización con IA
-const features = [
+const services = [
+  {
+    icon: "lucide:brain-circuit",
+    title: "Desarrollo de IA Personalizada",
+    description:
+      "Creamos modelos de inteligencia artificial a medida que resuelven tus desafíos específicos de negocio.",
+  },
   {
     icon: "lucide:bot",
-    title: "Automatización Inteligente",
+    title: "Integración de LLMs",
     description:
-      "Implementamos flujos de trabajo autónomos que se adaptan y optimizan, liberando a tu equipo de tareas repetitivas.",
+      "Implementamos y personalizamos modelos de lenguaje avanzados (GPT, Claude, Llama) en tus sistemas.",
   },
   {
-    icon: "lucide:brain",
-    title: "Análisis Predictivo",
+    icon: "lucide:workflow",
+    title: "Automatización de Procesos",
     description:
-      "Utilizamos modelos de IA para predecir tendencias, identificar oportunidades de mercado y tomar decisiones basadas en datos.",
+      "Diseñamos flujos de trabajo inteligentes que automatizan tareas repetitivas y optimizan operaciones.",
   },
   {
-    icon: "lucide:zap",
-    title: "Integraciones Sin Esfuerzo",
+    icon: "lucide:database",
+    title: "Análisis de Datos con IA",
     description:
-      "Conectamos tus sistemas existentes para crear un ecosistema unificado y eficiente, sin interrupciones en tus operaciones.",
+      "Transformamos tus datos en insights accionables mediante machine learning y análisis predictivo.",
   },
   {
-    icon: "lucide:shield-check",
-    title: "Seguridad y Cumplimiento",
+    icon: "lucide:sparkles",
+    title: "Chatbots & Asistentes Virtuales",
     description:
-      "Nuestras soluciones de IA están diseñadas con la seguridad y la privacidad en mente, garantizando la protección de tus datos.",
+      "Desarrollamos agentes conversacionales inteligentes que mejoran la experiencia de tus clientes.",
   },
   {
-    icon: "lucide:rocket",
-    title: "Escalabilidad Dinámica",
+    icon: "lucide:code-2",
+    title: "Software a Medida",
     description:
-      "Las soluciones crecen contigo. Añade o modifica procesos fácilmente para que la IA se adapte al crecimiento de tu negocio.",
-  },
-  {
-    icon: "lucide:trending-up",
-    title: "Optimización Continua",
-    description:
-      "Nuestros algoritmos de aprendizaje automático mejoran constantemente, garantizando que tu negocio opere con la máxima eficiencia.",
+      "Construimos aplicaciones web y móviles robustas con arquitecturas modernas y escalables.",
   },
 ];
 ---
 
-<section
-  id="features"
-  class="py-16 md:py-24 px-8"
->
-  <div class="container mx-auto px-4 max-w-6xl">
-    <div class="text-center mb-12 md:mb-16">
-      <h2
-        class="text-3xl md:text-5xl font-bold text-foreground dark:text-primary-foreground leading-tight mb-4"
+<section id="services" class="py-20 md:py-32 px-4 relative overflow-hidden">
+  <!-- Background Elements -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"
+  >
+  </div>
+  <div
+    class="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+  >
+  </div>
+  <div
+    class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 max-w-7xl relative z-10">
+    <div class="text-center mb-16">
+      <div
+        class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4 backdrop-blur-sm"
       >
-        Impulsa tu Negocio con la Inteligencia Artificial
+        <Icon name="lucide:sparkles" class="w-4 h-4 mr-2" />
+        Nuestros Servicios
+      </div>
+      <h2
+        class="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
+      >
+        Soluciones de <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+          >Software & IA</span
+        >
       </h2>
-      <p class="text-lg text-primary max-w-3xl mx-auto">
-        Descubre cómo nuestras soluciones de IA y automatización transforman la
-        eficiencia y el crecimiento de tu empresa.
+      <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+        Combinamos expertise en desarrollo de software con las últimas
+        tecnologías de inteligencia artificial para impulsar tu negocio.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        features.map((feature) => (
-          <Card className="relative bg-slate-50 border rounded-xl shadow-2xl overflow-hidden transform -rotate-1 hover:rotate-0 hover:shadow-2xl hover:scale-105 transition-transform duration-500">
-            <CardHeader>
-              <div class="mb-4 text-foreground">
-                <Icon name={feature.icon} class="w-10 h-10" />
+        services.map((service, index) => (
+          <Card className="group relative bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <CardHeader className="relative z-10">
+              <div class="mb-4 p-3 bg-primary/10 rounded-lg inline-flex w-fit group-hover:bg-primary/20 transition-colors duration-300">
+                <Icon name={service.icon} class="w-8 h-8 text-primary" />
               </div>
-              <CardTitle className="text-xl font-semibold text-foreground">
-                {feature.title}
+              <CardTitle className="text-xl font-bold text-foreground mb-2">
+                {service.title}
               </CardTitle>
+              <CardDescription className="text-muted-foreground leading-relaxed">
+                {service.description}
+              </CardDescription>
             </CardHeader>
-            <CardDescription className="px-6 pb-6 text-foreground">
-              {feature.description}
-            </CardDescription>
           </Card>
         ))
       }
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <a
+        href="#contact"
+        class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-primary-foreground bg-primary hover:bg-primary/90 transition-all duration-200 shadow-glow hover:shadow-lg hover:-translate-y-1"
+      >
+        Hablemos de tu Proyecto
+        <Icon name="lucide:arrow-right" class="w-5 h-5 ml-2" />
+      </a>
     </div>
   </div>
 </section>
