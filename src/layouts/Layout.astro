@@ -1,194 +1,233 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
 ---
+
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-		<!-- SEO Meta Tags -->
-		<title>SkaLab - Automatización Inteligente con IA para tu Negocio</title>
-		<meta name="description" content="Transforma tu negocio con SkaLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa." />
-		<meta name="keywords" content="automatización, inteligencia artificial, IA, procesos empresariales, productividad, eficiencia, transformación digital, startup, tecnología" />
-		<meta name="author" content="SkaLab" />
-		<meta name="robots" content="index, follow" />
+    <!-- SEO Meta Tags -->
+    <title>CogniLab - Automatización Inteligente con IA para tu Negocio</title>
+    <meta
+      name="description"
+      content="Transforma tu negocio con CogniLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa."
+    />
+    <meta
+      name="keywords"
+      content="automatización, inteligencia artificial, IA, procesos empresariales, productividad, eficiencia, transformación digital, startup, tecnología"
+    />
+    <meta name="author" content="CogniLab" />
+    <meta name="robots" content="index, follow" />
 
-		<!-- Mobile Optimization -->
-		<meta name="theme-color" content="#6366f1" />
-		<meta name="mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
-		<meta name="apple-mobile-web-app-title" content="SkaLab" />
+    <!-- Mobile Optimization -->
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="CogniLab" />
 
-		<!-- Zoom Control for Mobile -->
-		<meta name="apple-touch-fullscreen" content="yes" />
-		<meta name="mobile-web-app-capable" content="yes" />
-		<meta name="msapplication-tap-highlight" content="no" />
-		<meta name="msapplication-TileColor" content="#6366f1" />
+    <!-- Zoom Control for Mobile -->
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="msapplication-TileColor" content="#6366f1" />
 
-		<!-- Prevent zoom on input focus (iOS) -->
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="msapplication-tap-highlight" content="no" />
+    <!-- Prevent zoom on input focus (iOS) -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
-		<meta property="og:title" content="SkaLab - Automatización Inteligente con IA para tu Negocio" />
-		<meta property="og:description" content="Transforma tu negocio con SkaLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa." />
-		<meta property="og:image" content="/og-image.jpg" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="SkaLab - Automatización con IA" />
-		<meta property="og:site_name" content="SkaLab" />
-		<meta property="og:locale" content="es_ES" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta
+      property="og:title"
+      content="CogniLab - Automatización Inteligente con IA para tu Negocio"
+    />
+    <meta
+      property="og:description"
+      content="Transforma tu negocio con CogniLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CogniLab - Automatización con IA" />
+    <meta property="og:site_name" content="CogniLab" />
+    <meta property="og:locale" content="es_ES" />
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={Astro.url} />
-		<meta property="twitter:title" content="SkaLab - Automatización Inteligente con IA para tu Negocio" />
-		<meta property="twitter:description" content="Transforma tu negocio con SkaLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa." />
-		<meta property="twitter:image" content="/og-image.jpg" />
-		<meta property="twitter:image:alt" content="SkaLab - Automatización con IA" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta
+      property="twitter:title"
+      content="CogniLab - Automatización Inteligente con IA para tu Negocio"
+    />
+    <meta
+      property="twitter:description"
+      content="Transforma tu negocio con CogniLab. Automatización de procesos empresariales usando inteligencia artificial. Aumenta la productividad, reduce costos y escala tu empresa."
+    />
+    <meta property="twitter:image" content="/og-image.jpg" />
+    <meta
+      property="twitter:image:alt"
+      content="CogniLab - Automatización con IA"
+    />
 
-		<!-- Canonical URL -->
-		<link rel="canonical" href={Astro.url} />
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url} />
 
-		<!-- Structured Data (JSON-LD) -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Organization",
-				"name": "SkaLab",
-				"description": "Startup de automatización con inteligencia artificial para procesos empresariales",
-				"url": "https://skalab.dev",
-				"logo": "https://skalab.dev/logo.svg",
-				"foundingDate": "2025",
-				"sameAs": [
-					"https://twitter.com/skalab",
-					"https://linkedin.com/company/skalab"
-				],
-				"contactPoint": {
-					"@type": "ContactPoint",
-					"contactType": "customer service",
-					"availableLanguage": "Spanish"
-				},
-				"areaServed": "Worldwide",
-				"serviceType": "AI Automation Services"
-			}
-		</script>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CogniLab",
+        "description": "Startup de automatización con inteligencia artificial para procesos empresariales",
+        "url": "https://cognilab.dev",
+        "logo": "https://cognilab.dev/logo.svg",
+        "foundingDate": "2025",
+        "sameAs": [
+          "https://twitter.com/cognilab",
+          "https://linkedin.com/company/cognilab"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": "Spanish"
+        },
+        "areaServed": "Worldwide",
+        "serviceType": "AI Automation Services"
+      }
+    </script>
 
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "WebSite",
-				"name": "SkaLab",
-				"description": "Automatización inteligente con IA para tu negocio",
-				"url": "https://skalab.dev",
-				"potentialAction": {
-					"@type": "SearchAction",
-					"target": "https://skalab.dev/search?q={search_term_string}",
-					"query-input": "required name=search_term_string"
-				}
-			}
-		</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CogniLab",
+        "description": "Automatización inteligente con IA para tu negocio",
+        "url": "https://cognilab.dev",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://cognilab.dev/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
 
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Service",
-				"name": "Automatización con Inteligencia Artificial",
-				"description": "Servicios de automatización de procesos empresariales usando IA",
-				"provider": {
-					"@type": "Organization",
-					"name": "SkaLab"
-				},
-				"serviceType": "AI Automation",
-				"areaServed": "Worldwide",
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Servicios de Automatización",
-					"itemListElement": [
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Análisis y Descubrimiento",
-								"description": "Evaluación de procesos actuales para identificar oportunidades de automatización"
-							}
-						},
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Diseño y Desarrollo",
-								"description": "Desarrollo de soluciones de IA personalizadas"
-							}
-						},
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Implementación y Despliegue",
-								"description": "Integración de soluciones en sistemas existentes"
-							}
-						}
-					]
-				}
-			}
-		</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Automatización con Inteligencia Artificial",
+        "description": "Servicios de automatización de procesos empresariales usando IA",
+        "provider": {
+          "@type": "Organization",
+          "name": "CogniLab"
+        },
+        "serviceType": "AI Automation",
+        "areaServed": "Worldwide",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Automatización",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Análisis y Descubrimiento",
+                "description": "Evaluación de procesos actuales para identificar oportunidades de automatización"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Diseño y Desarrollo",
+                "description": "Desarrollo de soluciones de IA personalizadas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Implementación y Despliegue",
+                "description": "Integración de soluciones en sistemas existentes"
+              }
+            }
+          ]
+        }
+      }
+    </script>
 
-		<!-- AOS CSS -->
-		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-	</head>
-	<body class="bg-background text-foreground antialiased leading-relaxed">
-		<script>
-      import AOS from 'aos';
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  </head>
+  <body class="bg-background text-foreground antialiased leading-relaxed">
+    <script>
+      import AOS from "aos";
       AOS.init({
         once: true, // Animaciones solo una vez
         duration: 800, // Duración de la animación en ms
       });
 
       // Mobile zoom and orientation control
-      (function() {
-        'use strict';
+      (function () {
+        "use strict";
 
         // Prevent zoom on double tap
         let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-          const now = (new Date()).getTime();
-          if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-          }
-          lastTouchEnd = now;
-        }, false);
+        document.addEventListener(
+          "touchend",
+          function (event) {
+            const now = new Date().getTime();
+            if (now - lastTouchEnd <= 300) {
+              event.preventDefault();
+            }
+            lastTouchEnd = now;
+          },
+          false,
+        );
 
         // Handle orientation change
-        window.addEventListener('orientationchange', function() {
+        window.addEventListener("orientationchange", function () {
           // Small delay to allow orientation to settle
-          setTimeout(function() {
-            window.dispatchEvent(new Event('resize'));
+          setTimeout(function () {
+            window.dispatchEvent(new Event("resize"));
           }, 100);
         });
 
         // Prevent iOS zoom on input focus
-        const inputs = document.querySelectorAll('input, textarea, select');
-        inputs.forEach(function(input) {
-          input.addEventListener('focus', function() {
+        const inputs = document.querySelectorAll("input, textarea, select");
+        inputs.forEach(function (input) {
+          input.addEventListener("focus", function () {
             // Prevent zoom by temporarily disabling viewport scaling
-            const viewport = document.querySelector('meta[name=viewport]') as HTMLMetaElement | null;
+            const viewport = document.querySelector(
+              "meta[name=viewport]",
+            ) as HTMLMetaElement | null;
             if (viewport) {
-              viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover');
+              viewport.setAttribute(
+                "content",
+                "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover",
+              );
             }
           });
 
-          input.addEventListener('blur', function() {
+          input.addEventListener("blur", function () {
             // Restore normal viewport scaling
-            const viewport = document.querySelector('meta[name=viewport]') as HTMLMetaElement | null;
+            const viewport = document.querySelector(
+              "meta[name=viewport]",
+            ) as HTMLMetaElement | null;
             if (viewport) {
-              viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover');
+              viewport.setAttribute(
+                "content",
+                "width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover",
+              );
             }
           });
         });
@@ -196,25 +235,25 @@ import '../styles/global.css'
         // Handle viewport height on mobile browsers
         function setVH() {
           const vh = window.innerHeight * 0.01;
-          document.documentElement.style.setProperty('--vh', `${vh}px`);
+          document.documentElement.style.setProperty("--vh", `${vh}px`);
         }
 
         setVH();
-        window.addEventListener('resize', setVH);
-        window.addEventListener('orientationchange', setVH);
+        window.addEventListener("resize", setVH);
+        window.addEventListener("orientationchange", setVH);
       })();
     </script>
-		<slot />
-		</body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 
   /* Smooth scroll behavior for the entire page */
   html {
@@ -259,7 +298,8 @@ import '../styles/global.css'
       margin-bottom: 0.625rem;
     }
 
-    h5, h6 {
+    h5,
+    h6 {
       font-size: 1rem;
       line-height: 1.4;
       margin-bottom: 0.5rem;
@@ -273,7 +313,8 @@ import '../styles/global.css'
     }
 
     /* List improvements */
-    ul, ol {
+    ul,
+    ol {
       line-height: 1.6;
       margin-bottom: 1rem;
     }
@@ -284,7 +325,14 @@ import '../styles/global.css'
     }
 
     /* Better text rendering */
-    body, p, h1, h2, h3, h4, h5, h6 {
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;

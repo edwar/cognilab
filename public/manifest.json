@@ -1,13 +1,17 @@
 {
-  "name": "SkaLab - Automatización con IA",
-  "short_name": "SkaLab",
+  "name": "CogniLab - Automatización con IA",
+  "short_name": "CogniLab",
   "description": "Transforma tu negocio con automatización inteligente usando IA",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
   "orientation": "portrait-primary",
-  "categories": ["business", "productivity", "technology"],
+  "categories": [
+    "business",
+    "productivity",
+    "technology"
+  ],
   "lang": "es",
   "icons": [
     {

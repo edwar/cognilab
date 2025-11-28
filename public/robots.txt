@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://skalab.dev/sitemap.xml
+Sitemap: https://cognilab.dev/sitemap.xml
 
 # Specific directives
 User-agent: Googlebot
