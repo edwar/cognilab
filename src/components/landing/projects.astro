@@ -4,36 +4,38 @@ import { Icon } from "astro-icon/components";
 // Array de proyectos - Agrega o edita proyectos aquí
 const projects = [
     {
-        title: "Sistema de Análisis Predictivo",
+        title: "Sistema de Gestion de Delivery",
         description:
-            "Plataforma de IA que predice tendencias de mercado y comportamiento de clientes usando machine learning avanzado.",
-        image: "/projects/project-1.jpg", // Ruta a la imagen del proyecto
-        tags: ["Machine Learning", "Python", "TensorFlow"],
-        link: "#", // Link al proyecto o caso de estudio
+            "Plataforma potenciada por AI que optimiza el flujo de operaciones de delivery.",
+        image: "/projects/delivery.png", // Ruta a la imagen del proyecto
+        tags: [
+            "AI",
+            "N8N",
+            "NextJS",
+            "TailwindCSS",
+            "TypeScript",
+            "Supabase",
+            "Redis",
+            "Vercel",
+            "Evolution API",
+        ],
+        link: "https://delivery.cognilab.dev", // Link al proyecto o caso de estudio
     },
     {
-        title: "Chatbot Inteligente Multicanal",
+        title: "Sistema de optimización de rutas",
         description:
-            "Asistente virtual con procesamiento de lenguaje natural que atiende clientes 24/7 en múltiples plataformas.",
-        image: "/projects/project-2.jpg",
-        tags: ["NLP", "GPT-4", "Node.js"],
-        link: "#",
+            "Herramienta de optimización de rutas más sencilla y potente. Ahorra tiempo, dinero y estrés en cada entrega.",
+        image: "/projects/zas.png", // Ruta a la imagen del proyecto
+        tags: ["Astro", "TailwindCSS", "TypeScript", "Supabase", "Vercel"],
+        link: "https://zas.cognilab.dev", // Link al proyecto o caso de estudio
     },
     {
-        title: "Automatización de Procesos RPA",
+        title: "Sistema de planeación de sprint",
         description:
-            "Sistema de automatización robótica que optimizó procesos administrativos reduciendo tiempo en un 70%.",
-        image: "/projects/project-3.jpg",
-        tags: ["RPA", "Automation", "Python"],
-        link: "#",
-    },
-    {
-        title: "Dashboard de Analytics con IA",
-        description:
-            "Panel de control inteligente que genera insights automáticos y visualizaciones predictivas en tiempo real.",
-        image: "/projects/project-4.jpg",
-        tags: ["Data Analytics", "React", "AI"],
-        link: "#",
+            "Herramienta de planeación de sprint más sencilla y potente. Ahorra tiempo, dinero y estrés en cada entrega.",
+        image: "/projects/planning-poker.png", // Ruta a la imagen del proyecto
+        tags: ["NextJS", "TailwindCSS", "TypeScript", "Firebase", "Vercel"],
+        link: "https://planning-poker.cognilab.dev", // Link al proyecto o caso de estudio
     },
 ];
 ---
@@ -78,12 +80,17 @@ const projects = [
                 projects.map((project, index) => (
                     <a
                         href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="group relative bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-2"
                     >
                         {/* Image Container */}
-                        <div class="relative h-64 overflow-hidden bg-muted/20">
-                            {/* Placeholder gradient if no image */}
-                            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20" />
+                        <div class="relative  overflow-hidden bg-muted/20">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                class="w-full h-full object-cover aspect-auto"
+                            />
 
                             {/* Overlay on hover */}
                             <div class="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
