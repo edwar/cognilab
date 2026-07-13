@@ -1,5 +1,5 @@
 ---
-import { Icon } from "lucide-react";
+import { Icon } from "astro-icon/components";
 import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 
 // Social.astro
@@ -10,20 +10,20 @@ const clientLogos: string[] = [
 
 const stats = [
   {
-    number: "+85%",
-    description: "Reducción en tiempo de procesamiento de datos",
+    number: "4",
+    description: "Productos SaaS en producción activa",
   },
   {
-    number: "$1.2M+",
-    description: "Ahorros generados para nuestros clientes",
+    number: "Next.js",
+    description: "Framework principal de desarrollo",
   },
   {
-    number: "99.9%",
-    description: "Tasa de precisión en la automatización de tareas",
+    number: "Neon",
+    description: "Infraestructura de base de datos y auth",
   },
   {
-    number: "500K+",
-    description: "Horas de trabajo manual automatizadas",
+    number: "TypeScript",
+    description: "Lenguaje en toda la plataforma",
   },
 ];
 ---
@@ -48,18 +48,18 @@ const stats = [
     </div>}
 
     <div>
-      <h3 class="text-center text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-12">
-        Resultados que hablan por sí mismos
+      <h3 class="text-center text-3xl md:text-4xl font-bold text-foreground mb-12">
+        Tecnología que Respaldan Nuestros Productos
       </h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
         {stats.map((stat) => (
-          <Card className="relative bg-slate-50 border rounded-xl shadow-2xl overflow-hidden transform -rotate-1 hover:rotate-0 hover:shadow-2xl hover:scale-105 transition-transform duration-500">
+          <Card className="relative border overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
             <CardHeader>
               <CardTitle className="text-4xl md:text-5xl font-extrabold text-primary">
                 {stat.number}
               </CardTitle>
             </CardHeader>
-            <CardDescription className="px-6 pb-6 text-base md:text-lg text-accent-foreground">
+            <CardDescription className="px-6 pb-6 text-base md:text-lg text-muted-foreground">
               {stat.description}
             </CardDescription>
           </Card>
