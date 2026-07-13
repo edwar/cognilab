@@ -7,50 +7,50 @@ const steps = [
   {
     number: "01",
     icon: "lucide:search-check",
-    title: "Análisis y Descubrimiento",
+    title: "Identificamos el Problema",
     description:
-      "Evaluamos tus procesos actuales para identificar las mejores oportunidades de automatización y ahorro.",
+      "Analizamos las necesidades reales del mercado y definimos el producto mínimo viable que las resuelve de forma efectiva.",
   },
   {
     number: "02",
     icon: "lucide:code",
-    title: "Diseño y Desarrollo",
+    title: "Construimos el Producto",
     description:
-      "Diseñamos e implementamos soluciones de IA a la medida, construyendo los flujos de trabajo que tu negocio necesita.",
+      "Desarrollamos con Next.js, TypeScript y Neon. Arquitectura moderna, escalable y con experiencia de usuario impecable.",
   },
   {
     number: "03",
-    icon: "lucide:cloud-upload",
-    title: "Implementación y Despliegue",
+    icon: "lucide:rocket",
+    title: "Lanzamos y Probamos",
     description:
-      "Integramos las soluciones en tus sistemas existentes, garantizando una transición fluida y sin interrupciones.",
+      "Publicamos el producto, recogemos feedback real de usuarios y ajustamos rápido. Iteramos hasta que encaje perfectamente.",
   },
   {
     number: "04",
     icon: "lucide:refresh-cw",
-    title: "Optimización Continua",
+    title: "Evolución Continua",
     description:
-      "Monitoreamos y optimizamos el rendimiento de la IA, asegurando que tus procesos operen con máxima eficiencia.",
+      "Cada producto recibe mejoras constantes: nuevas funcionalidades, optimizaciones de rendimiento y soporte técnico continuo.",
   },
 ];
 ---
 
-<section id="how-it-works" class="py-16 md:py-24 bg-slate-50 dark:bg-foreground">
+<section id="how-it-works" class="py-16 md:py-24 bg-muted/20">
   <div class="container mx-auto px-4 max-w-6xl">
     <div class="text-center mb-12 md:mb-16">
       <h2
         class="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4"
       >
-        Nuestro Proceso de Transformación
+        Cómo Creamos Productos SaaS
       </h2>
       <p class="text-lg text-muted-foreground">
-        Transformamos tus operaciones en solo cuatro pasos.
+        De la idea al producto funcionando — nuestro proceso en cuatro etapas.
       </p>
     </div>
 
     <div class="relative px-8">
       <div
-        class="absolute inset-y-0 left-1/2 w-0.5 -ml-0.5 bg-gray-200 dark:bg-gray-700 hidden lg:block"
+        class="absolute inset-y-0 left-1/2 w-0.5 -ml-0.5 bg-border hidden lg:block"
       >
       </div>
 
@@ -64,21 +64,21 @@ const steps = [
             >
               <div data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>
                 <div class="flex items-center justify-center lg:justify-start gap-4 mb-4 lg:mb-0">
-                  <h4 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">
+                  <h4 class="text-3xl font-bold text-primary/70">
                     {step.number}
                   </h4>
 
-                  <div class="lg:hidden flex items-center justify-center p-2 rounded-full bg-indigo-600 dark:bg-indigo-500 text-white shadow-md">
+                  <div class="lg:hidden flex items-center justify-center p-2 rounded-full bg-primary text-primary-foreground shadow-md">
                     <Icon name={step.icon} class="w-8 h-8" />
                   </div>
                 </div>
-                <Card className="relative bg-slate-50 border rounded-xl shadow-2xl overflow-hidden transform -rotate-1 hover:rotate-0 hover:shadow-2xl hover:scale-105 transition-transform duration-500">
+                <Card className="relative border rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
                   <CardHeader>
                     <CardTitle className="text-2xl md:text-4xl font-extrabold text-primary">
                       {step.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardDescription className="px-6 pb-6 text-sm md:text-base text-accent-foreground">
+                  <CardDescription className="px-6 pb-6 text-sm md:text-base text-muted-foreground">
                     {step.description}
                   </CardDescription>
                 </Card>
@@ -86,7 +86,7 @@ const steps = [
             </div>
 
             <div
-              class={`hidden lg:flex items-center justify-center p-2 rounded-full bg-indigo-600 dark:bg-indigo-500 text-white z-20 shadow-md transform -translate-y-1/2 top-1/2 left-1/2 ${index % 2 === 0 ? "-ml-14" : "ml-14"}`}
+              class={`hidden lg:flex items-center justify-center p-2 rounded-full bg-primary text-primary-foreground z-20 shadow-md -translate-y-1/2 top-1/2 left-1/2 ${index % 2 === 0 ? "-ml-14" : "ml-14"}`}
             >
               <Icon name={step.icon} class="w-8 h-8" />
             </div>

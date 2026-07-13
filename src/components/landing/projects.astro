@@ -4,38 +4,62 @@ import { Icon } from "astro-icon/components";
 // Array de proyectos - Agrega o edita proyectos aquí
 const projects = [
     {
-        title: "Sistema de Gestion de Delivery",
+        title: "VLink — Agendamiento Profesional",
         description:
-            "Plataforma potenciada por AI que optimiza el flujo de operaciones de delivery.",
-        image: "/projects/delivery.png", // Ruta a la imagen del proyecto
+            "Plataforma de agendamiento que automatiza citas, coordina equipos y sincroniza calendarios en tiempo real con Google Calendar.",
+        image: "/projects/vlink.png",
         tags: [
-            "AI",
-            "N8N",
             "NextJS",
-            "TailwindCSS",
             "TypeScript",
-            "Supabase",
-            "Redis",
-            "Vercel",
-            "Evolution API",
+            "TailwindCSS",
+            "Neon",
+            "PostgreSQL",
+            "Google Calendar API",
         ],
-        link: "https://delivery.cognilab.dev", // Link al proyecto o caso de estudio
+        link: "https://vlink.cognilab.dev",
     },
     {
-        title: "Sistema de optimización de rutas",
+        title: "Loki — Gestión Empresarial Inteligente",
         description:
-            "Herramienta de optimización de rutas más sencilla y potente. Ahorra tiempo, dinero y estrés en cada entrega.",
-        image: "/projects/zas.png", // Ruta a la imagen del proyecto
-        tags: ["Astro", "TailwindCSS", "TypeScript", "Supabase", "Vercel"],
-        link: "https://zas.cognilab.dev", // Link al proyecto o caso de estudio
+            "Sistema todo-en-uno para emprendedores: ventas, inventario, gastos, fidelización de clientes y métricas avanzadas.",
+        image: "/projects/loki.png",
+        tags: [
+            "NextJS",
+            "TypeScript",
+            "TailwindCSS",
+            "Neon",
+            "PostgreSQL",
+        ],
+        link: "https://loki.cognilab.dev",
     },
     {
-        title: "Sistema de planeación de sprint",
+        title: "Hermes — POS y Facturación Electrónica",
         description:
-            "Herramienta de planeación de sprint más sencilla y potente. Ahorra tiempo, dinero y estrés en cada entrega.",
-        image: "/projects/planning-poker.png", // Ruta a la imagen del proyecto
-        tags: ["NextJS", "TailwindCSS", "TypeScript", "Firebase", "Vercel"],
-        link: "https://planning-poker.cognilab.dev", // Link al proyecto o caso de estudio
+            "Sistema POS moderno con facturación electrónica DIAN, gestión de inventario, reportes y soporte offline para Colombia.",
+        image: "/projects/hermes.png",
+        tags: [
+            "NextJS",
+            "TypeScript",
+            "TailwindCSS",
+            "Neon",
+            "DIAN API",
+        ],
+        link: "https://hermes.cognilab.dev",
+    },
+    {
+        title: "Thor — Sorteos Gamificados en Vivo",
+        description:
+            "Plataforma SaaS de sorteos con ruleta en vivo, aleatoriedad SHA-256 verificable y pagos locales Wompi/Bold.",
+        image: "/projects/thor.png",
+        tags: [
+            "NextJS",
+            "TypeScript",
+            "TailwindCSS",
+            "Neon",
+            "PostgreSQL",
+            "Wompi",
+        ],
+        link: "https://thor.cognilab.dev",
     },
 ];
 ---
@@ -85,11 +109,13 @@ const projects = [
                         class="group relative bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-2"
                     >
                         {/* Image Container */}
-                        <div class="relative  overflow-hidden bg-muted/20">
+                        <div class="relative overflow-hidden bg-muted/20 aspect-video">
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                class="w-full h-full object-cover aspect-auto"
+                                loading="lazy"
+                                decoding="async"
+                                class="absolute inset-0 w-full h-full object-cover"
                             />
 
                             {/* Overlay on hover */}
@@ -144,18 +170,11 @@ const projects = [
                 href="#contact"
                 class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-primary-foreground bg-primary hover:bg-primary/90 transition-all duration-200 shadow-glow hover:shadow-lg hover:-translate-y-1"
             >
-                Hablemos de tu Proyecto
+                Contáctanos
                 <Icon name="lucide:arrow-right" class="w-5 h-5 ml-2" />
             </a>
         </div>
     </div>
 </section>
 
-<style>
-    /* Ensure images cover the container properly when added */
-    img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
-</style>
+
