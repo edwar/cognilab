@@ -1,33 +1,32 @@
 ---
-import { Accordion} from "@/components/accordion/Accordion";
+import { Accordion } from "@/components/accordion/Accordion";
 
-// Faqs.astro
-
-// Define la constante con los datos de las preguntas frecuentes
 const faqs = [
   {
     title: "¿Qué productos tiene CogniLab actualmente?",
-    description: "Actualmente tenemos cuatro productos activos: VLink (agendamiento profesional con Google Calendar), Loki (gestión empresarial: ventas, inventario y finanzas), Hermes (sistema POS con facturación electrónica DIAN para Colombia) y Thor (plataforma de sorteos gamificados con ruleta en vivo)."
+    description: "Actualmente tenemos ocho productos: VLink (agendamiento profesional con Google Calendar), Loki (gestión empresarial), Hermes (POS con facturación DIAN), Thor (sorteos gamificados), Apolo (vectorización con IA), Atenea (gestión de API keys), Nabu (scraping web con IA) y Perseus (finanzas personales)."
   },
   {
     title: "¿Los productos son gratuitos o tienen costo?",
-    description: "Cada producto tiene su propio modelo de negocio. Por ejemplo, Hermes es gratuito en su core (POS, inventario, reportes) y cobra solo por facturación electrónica. Thor cobra solo el 1% del recaudo por sorteo. Visita cada producto para ver sus precios específicos."
+    description: "Cada producto tiene su propio modelo de negocio. Por ejemplo, Hermes es gratuito en su core y cobra solo por facturación electrónica. Thor cobra solo el 1% del recaudo. Visita cada producto para ver sus precios específicos."
   },
   {
     title: "¿Necesito conocimientos técnicos para usar los productos?",
-    description: "¡Para nada! Todos nuestros productos están diseñados con interfaces intuitivas y experiencia de usuario cuidada. Si sabes usar un navegador web, puedes usar cualquiera de nuestras plataformas sin capacitación técnica."
+    description: "¡Para nada! Todos nuestros productos están diseñados con interfaces intuitivas y experiencia de usuario cuidada. Si sabes usar un navegador web, puedes usar cualquiera de nuestras plataformas."
   },
   {
     title: "¿Puedo solicitar una funcionalidad o producto nuevo?",
-    description: "Sí, nos encanta escuchar a los usuarios. Cada producto tiene un canal de soporte y retroalimentación. Además, si tienes una idea para un nuevo producto SaaS, contáctanos y evaluamos si encaja en nuestra visión."
+    description: "Sí, nos encanta escuchar a los usuarios. Cada producto tiene un canal de soporte y retroalimentación. Si tienes una idea para un nuevo producto SaaS, contáctanos y evaluamos si encaja en nuestra visión."
   }
 ];
 ---
 
-<section id="faqs" class="py-16 sm:py-24 bg-muted/20">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-center text-foreground">
-      Preguntas Frecuentes
+<section id="faqs" class="py-16 sm:py-24 px-4 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"></div>
+
+  <div class="max-w-6xl mx-auto px-4 relative z-10" data-gsap="reveal">
+    <h2 class="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-center text-foreground">
+      Preguntas <span class="gradient-text">Frecuentes</span>
     </h2>
     <p class="mt-4 text-lg text-center text-muted-foreground">
       Todo lo que necesitas saber sobre nuestros productos SaaS.

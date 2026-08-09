@@ -2,70 +2,55 @@
 import { Icon } from "astro-icon/components";
 import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 
-// Social.astro
-
-const clientLogos: string[] = [
-  // "/logos/logo1.svg",
-];
-
 const stats = [
   {
-    number: "4",
-    description: "Productos SaaS en producción activa",
+    number: 8,
+    suffix: "",
+    description: "Productos SaaS desarrollados",
+    icon: "lucide:package",
   },
   {
-    number: "Next.js",
-    description: "Framework principal de desarrollo",
+    number: 4,
+    suffix: "",
+    description: "En producción activa",
+    icon: "lucide:activity",
   },
   {
-    number: "Neon",
-    description: "Infraestructura de base de datos y auth",
+    number: 100,
+    suffix: "%",
+    description: "TypeScript en toda la plataforma",
+    icon: "lucide:code-2",
   },
   {
-    number: "TypeScript",
-    description: "Lenguaje en toda la plataforma",
+    number: 0,
+    suffix: "ms",
+    description: "Tiempo de respuesta promedio",
+    icon: "lucide:zap",
   },
 ];
 ---
 
-<section id="social-proof" class="py-16 md:py-24 px-8">
-  <div class="container mx-auto px-4 max-w-6xl">
+<section id="social-proof" class="py-16 md:py-24 px-4 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"></div>
 
-    {clientLogos.length > 1 && <div class="mb-16 md:mb-20">
-      <h3 class="text-center text-xl font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-8">
-        Confían en nosotros
+  <div class="container mx-auto px-4 max-w-6xl relative z-10">
+    <div data-gsap="reveal">
+      <h3 class="font-display text-center text-2xl md:text-3xl font-extrabold text-foreground mb-12">
+        Tecnología que Respaldan <span class="gradient-text">Nuestros Productos</span>
       </h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
-        {clientLogos.map((logo) => (
-          <img
-            src={logo}
-            alt="Logo del cliente"
-            class="h-10 md:h-12 w-auto grayscale opacity-70 hover:opacity-100 transition-opacity duration-300 dark:invert"
-            loading="lazy"
-          />
-        ))}
-      </div>
-    </div>}
-
-    <div>
-      <h3 class="text-center text-3xl md:text-4xl font-bold text-foreground mb-12">
-        Tecnología que Respaldan Nuestros Productos
-      </h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-gsap="stagger">
         {stats.map((stat) => (
-          <Card className="relative border overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-            <CardHeader>
-              <CardTitle className="text-4xl md:text-5xl font-extrabold text-primary">
-                {stat.number}
-              </CardTitle>
-            </CardHeader>
-            <CardDescription className="px-6 pb-6 text-base md:text-lg text-muted-foreground">
-              {stat.description}
-            </CardDescription>
-          </Card>
+          <div class="group relative bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/30 rounded-2xl p-6 text-center transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
+            <div class="mb-4 p-3 bg-primary/5 rounded-xl inline-flex border border-primary/10 group-hover:bg-primary/10 transition-all duration-300">
+              <Icon name={stat.icon} class="w-6 h-6 text-primary" />
+            </div>
+            <div class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-2">
+              <span data-gsap="counter" data-target={stat.number}>0</span>{stat.suffix}
+            </div>
+            <p class="text-sm text-muted-foreground">{stat.description}</p>
+          </div>
         ))}
       </div>
     </div>
-
   </div>
 </section>

@@ -1,240 +1,185 @@
 ---
 import { Icon } from "astro-icon/components";
 
-// Array de proyectos - Agrega o edita proyectos aquí
 const projects = [
     {
-        title: "VLink — Agendamiento Profesional",
+        title: "VLink",
+        subtitle: "Agendamiento Profesional",
         description:
             "Plataforma de agendamiento que automatiza citas, coordina equipos y sincroniza calendarios en tiempo real con Google Calendar.",
         image: "/projects/vlink.png",
-        tags: [
-            "NextJS",
-            "TypeScript",
-            "TailwindCSS",
-            "Neon",
-            "PostgreSQL",
-            "Google Calendar API",
-        ],
+        tags: ["NextJS", "TypeScript", "TailwindCSS", "Neon", "Google Calendar API"],
         link: "https://vlink.cognilab.dev",
+        color: "primary",
     },
     {
-        title: "Loki — Gestión Empresarial Inteligente",
+        title: "Loki",
+        subtitle: "Gestión Empresarial",
         description:
             "Sistema todo-en-uno para emprendedores: ventas, inventario, gastos, fidelización de clientes y métricas avanzadas.",
         image: "/projects/loki.png",
-        tags: [
-            "NextJS",
-            "TypeScript",
-            "TailwindCSS",
-            "Neon",
-            "PostgreSQL",
-        ],
+        tags: ["NextJS", "TypeScript", "TailwindCSS", "Neon", "PostgreSQL"],
         link: "https://loki.cognilab.dev",
+        color: "secondary",
     },
     {
-        title: "Hermes — POS y Facturación Electrónica",
+        title: "Hermes",
+        subtitle: "POS y Facturación Electrónica",
         description:
             "Sistema POS moderno con facturación electrónica DIAN, gestión de inventario, reportes y soporte offline para Colombia.",
         image: "/projects/hermes.png",
-        tags: [
-            "NextJS",
-            "TypeScript",
-            "TailwindCSS",
-            "Neon",
-            "DIAN API",
-        ],
+        tags: ["NextJS", "TypeScript", "TailwindCSS", "Neon", "DIAN API"],
         link: "https://hermes.cognilab.dev",
+        color: "accent",
     },
     {
-        title: "Thor — Sorteos Gamificados en Vivo",
+        title: "Thor",
+        subtitle: "Sorteos Gamificados en Vivo",
         description:
             "Plataforma SaaS de sorteos con ruleta en vivo, aleatoriedad SHA-256 verificable y pagos locales Wompi/Bold.",
         image: "/projects/thor.png",
-        tags: [
-            "NextJS",
-            "TypeScript",
-            "TailwindCSS",
-            "Neon",
-            "PostgreSQL",
-            "Wompi",
-        ],
+        tags: ["NextJS", "TypeScript", "TailwindCSS", "Neon", "Wompi"],
         link: "https://thor.cognilab.dev",
+        color: "primary",
     },
     {
-        title: "Apolo — Vectorización Inteligente con IA",
+        title: "Apolo",
+        subtitle: "Vectorización Inteligente con IA",
         description:
-            "Laboratorio de vectorización que convierte imágenes rasterizadas en SVG de alta fidelidad usando análisis automático de imagen y pipelines dinámicos.",
+            "Laboratorio de vectorización que convierte imágenes rasterizadas en SVG de alta fidelidad usando análisis automático y pipelines dinámicos.",
         image: "/projects/apolo.png",
-        tags: [
-            "Astro",
-            "React",
-            "TypeScript",
-            "Fastify",
-            "Sharp",
-            "VTracer",
-        ],
+        tags: ["Astro", "React", "TypeScript", "Fastify", "Sharp"],
         link: "https://github.com/edwar/apolo",
+        color: "secondary",
     },
     {
-        title: "Atenea — Gestión Segura de API Keys",
+        title: "Atenea",
+        subtitle: "Gestión Segura de API Keys",
         description:
             "Plataforma de gestión de claves API con cifrado AES-256-GCM, control de acceso por roles, auditoría completa y autenticación 2FA.",
         image: "/projects/atenea.png",
-        tags: [
-            "NextJS",
-            "TypeScript",
-            "Prisma",
-            "PostgreSQL",
-            "better-auth",
-            "AES-256",
-        ],
+        tags: ["NextJS", "TypeScript", "Prisma", "PostgreSQL", "better-auth"],
         link: "https://github.com/edwar/atenea",
+        color: "accent",
     },
     {
-        title: "Nabu — Scraping Web con IA",
+        title: "Nabu",
+        subtitle: "Scraping Web con IA",
         description:
             "Plataforma SaaS de scraping que usa LLM para extraer datos estructurados de cualquier sitio web a partir de descripciones en lenguaje natural.",
         image: "/projects/nabu.png",
-        tags: [
-            "NextJS",
-            "TypeScript",
-            "Prisma",
-            "Groq",
-            "Cheerio",
-            "MercadoPago",
-        ],
+        tags: ["NextJS", "TypeScript", "Prisma", "Groq", "Cheerio"],
         link: "https://github.com/edwar/nabu",
+        color: "primary",
     },
     {
-        title: "Perseus — Finanzas Personales Inteligentes",
+        title: "Perseus",
+        subtitle: "Finanzas Personales Inteligentes",
         description:
             "Gestor financiero personal con OCR inteligente para escaneo de recibos, categorización automática con IA, presupuestos y metas de ahorro.",
         image: "/projects/perseus.png",
-        tags: [
-            "NextJS",
-            "TypeScript",
-            "Prisma",
-            "Neon",
-            "Groq",
-            "Tesseract.js",
-        ],
+        tags: ["NextJS", "TypeScript", "Prisma", "Neon", "Groq"],
         link: "https://github.com/edwar/perseus",
+        color: "secondary",
     },
 ];
+
+const colorAccent: Record<string, string> = {
+    primary: "text-primary",
+    secondary: "text-secondary",
+    accent: "text-accent",
+};
+
+const colorBg: Record<string, string> = {
+    primary: "bg-primary/10 border-primary/20",
+    secondary: "bg-secondary/10 border-secondary/20",
+    accent: "bg-accent/10 border-accent/20",
+};
 ---
 
 <section id="projects" class="py-20 md:py-32 px-4 relative overflow-hidden">
-    <!-- Background Elements -->
-    <div
-        class="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"
-    >
-    </div>
-    <div
-        class="absolute top-1/2 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
-    >
-    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"></div>
+    <div class="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" aria-hidden="true"></div>
 
     <div class="container mx-auto px-4 max-w-7xl relative z-10">
-        <div class="text-center mb-16">
-            <div
-                class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4 backdrop-blur-sm"
-            >
-                <Icon name="lucide:briefcase" class="w-4 h-4 mr-2" />
+        <div class="text-center mb-16" data-gsap="reveal">
+            <div class="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-mono font-medium text-primary tracking-wider uppercase mb-6">
+                <Icon name="lucide:briefcase" class="w-3.5 h-3.5 mr-2" />
                 Proyectos
             </div>
-            <h2
-                class="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
-            >
-                Casos de <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent"
-                    >Éxito</span
-                >
+            <h2 class="font-display text-3xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
+                Casos de <span class="gradient-text">Éxito</span>
             </h2>
-            <p
-                class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
-            >
-                Descubre cómo hemos ayudado a empresas a transformar sus
-                operaciones con soluciones de IA.
+            <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                Descubre cómo hemos ayudado a empresas a transformar sus operaciones con soluciones de IA.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-gsap="stagger">
             {
                 projects.map((project, index) => (
                     <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="group relative bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-2"
+                        class="project-card group relative bg-card/30 backdrop-blur-sm border border-border/30 rounded-2xl overflow-hidden transition-all duration-500 hover:border-border/60 hover:shadow-xl hover:-translate-y-1"
                     >
-                        {/* Image Container */}
-                        <div class="relative overflow-hidden bg-muted/20 aspect-video">
+                        {/* Image */}
+                        <div class="relative overflow-hidden bg-muted/10 aspect-video">
                             <img
                                 src={project.image}
                                 alt={project.title}
                                 loading="lazy"
                                 decoding="async"
-                                class="absolute inset-0 w-full h-full object-cover"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-
-                            {/* Overlay on hover */}
-                            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-
-                            {/* Project number badge */}
-                            <div class="absolute top-4 right-4 w-12 h-12 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full flex items-center justify-center">
-                                <span class="text-primary font-bold text-lg">
+                            <div class="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500" />
+                            
+                            {/* Number badge */}
+                            <div class={`absolute top-4 right-4 w-10 h-10 ${colorBg[project.color]} backdrop-blur-sm rounded-full flex items-center justify-center border`}>
+                                <span class={`${colorAccent[project.color]} font-mono font-bold text-sm`}>
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
+                            </div>
+
+                            {/* Hover arrow */}
+                            <div class="absolute bottom-4 right-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
+                                <Icon name="lucide:arrow-up-right" class="w-5 h-5 text-primary-foreground" />
                             </div>
                         </div>
 
                         {/* Content */}
                         <div class="p-6">
-                            <h3 class="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                                {project.title}
-                            </h3>
-                            <p class="text-muted-foreground leading-relaxed mb-4">
+                            <div class="flex items-baseline gap-3 mb-2">
+                                <h3 class={`font-display text-xl font-bold ${colorAccent[project.color]} transition-colors duration-300`}>
+                                    {project.title}
+                                </h3>
+                                <span class="text-xs font-mono text-muted-foreground/50">{project.subtitle}</span>
+                            </div>
+                            <p class="text-sm text-muted-foreground leading-relaxed mb-4">
                                 {project.description}
                             </p>
-
-                            {/* Tags */}
-                            <div class="flex flex-wrap gap-2 mb-4">
+                            <div class="flex flex-wrap gap-1.5">
                                 {project.tags.map((tag) => (
-                                    <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20">
+                                    <span class="px-2.5 py-0.5 bg-white/[0.03] text-muted-foreground/60 text-[0.65rem] font-mono rounded-md border border-border/20">
                                         {tag}
                                     </span>
                                 ))}
                             </div>
-
-                            {/* CTA */}
-                            <div class="flex items-center text-primary font-medium group-hover:gap-2 transition-all duration-300">
-                                <span>Ver proyecto</span>
-                                <Icon
-                                    name="lucide:arrow-right"
-                                    class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                                />
-                            </div>
                         </div>
-
-                        {/* Glow effect on hover */}
-                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     </a>
                 ))
             }
         </div>
 
-        <!-- CTA -->
-        <div class="mt-16 text-center">
+        <div class="mt-16 text-center" data-gsap="reveal">
             <a
                 href="#contact"
-                class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-primary-foreground bg-primary hover:bg-primary/90 transition-all duration-200 shadow-glow hover:shadow-lg hover:-translate-y-1"
+                class="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded-2xl bg-primary text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_oklch(0.78_0.15_195/0.3)] hover:-translate-y-0.5"
             >
                 Contáctanos
-                <Icon name="lucide:arrow-right" class="w-5 h-5 ml-2" />
+                <Icon name="lucide:arrow-right" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
         </div>
     </div>
 </section>
-
-

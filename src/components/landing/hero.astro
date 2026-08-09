@@ -1,5 +1,5 @@
 ---
-// Hero.astro
+// Hero.astro — GSAP-powered hero with timeline entrance and floating orbs
 ---
 
 <section
@@ -7,279 +7,177 @@
   class="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
   aria-labelledby="hero-heading"
 >
-  <!-- Background Elements -->
-  <div
-    class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"
-  >
-  </div>
-  <div
-    class="absolute inset-0 bg-grid-black/[0.02] bg-[size:50px_50px]"
-    aria-hidden="true"
-  >
-  </div>
+  <!-- Animated mesh gradient background -->
+  <div class="absolute inset-0 mesh-gradient"></div>
+  <div class="absolute inset-0 bg-grid opacity-40"></div>
 
-  <!-- Animated Glows -->
-  <div
-    class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob will-change-transform"
-  >
-  </div>
-  <div
-    class="absolute top-1/3 -right-20 w-96 h-96 bg-secondary/15 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 will-change-transform"
-  >
-  </div>
-  <div
-    class="absolute -bottom-32 left-1/3 w-96 h-96 bg-accent/15 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000 will-change-transform"
-  >
-  </div>
+  <!-- Floating orbs — animated by GSAP -->
+  <div class="orb absolute top-1/4 -left-32 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" aria-hidden="true"></div>
+  <div class="orb absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-secondary/8 rounded-full blur-[100px]" aria-hidden="true"></div>
+  <div class="orb absolute top-2/3 left-1/3 w-[300px] h-[300px] bg-accent/6 rounded-full blur-[80px]" aria-hidden="true"></div>
+
+  <div class="absolute inset-0 scanlines pointer-events-none" aria-hidden="true"></div>
 
   <!-- Main Content -->
-  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       <!-- Text Content -->
-      <div class="lg:col-span-7 text-center lg:text-left pt-10 lg:pt-0">
-        <!-- Badge -->
-        <div
-          class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-6 backdrop-blur-sm"
-        >
-          <span class="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"
-          ></span>
-          Estudio de Productos SaaS
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <div class="hero-badge inline-flex items-center gap-2.5 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 opacity-0">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/60"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </span>
+          <span class="text-xs font-mono font-medium text-primary tracking-wider uppercase">Estudio de Productos SaaS</span>
         </div>
 
-        <!-- Headline -->
-        <h1
-          id="hero-heading"
-          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6 leading-tight text-balance"
-        >
-          Productos <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary animate-gradient-x"
-            >SaaS</span
-          > que Resuelven Problemas Reales
+        <h1 id="hero-heading" class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight leading-[0.95] mt-8 mb-6">
+          <span class="hero-line block text-foreground overflow-hidden"><span class="inline-block">Productos</span></span>
+          <span class="hero-line block gradient-text overflow-hidden"><span class="inline-block">SaaS</span></span>
+          <span class="hero-line block text-foreground overflow-hidden"><span class="inline-block">que Resuelven</span></span>
+          <span class="hero-line block text-foreground overflow-hidden"><span class="inline-block">Problemas <span class="text-accent">Reales</span></span></span>
         </h1>
 
-        <!-- Subheadline -->
-        <p
-          class="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-balance"
-        >
-          En CogniLab creamos plataformas modernas para optimizar tu negocio:
-          agendamiento inteligente, gestión empresarial, punto de venta y
-          experiencias gamificadas — todo en un solo ecosistema.
+        <p class="hero-sub text-lg sm:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed opacity-0">
+          Creamos plataformas modernas para optimizar tu negocio: agendamiento inteligente, gestión empresarial, punto de venta y experiencias gamificadas.
         </p>
 
-        <!-- CTAs -->
-        <div
-          class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-        >
-          <a
-            href="#projects"
-            class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-primary-foreground bg-primary hover:bg-primary/90 transition-all duration-200 shadow-glow hover:shadow-lg hover:-translate-y-1"
-          >
+        <div class="hero-ctas flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0">
+          <a href="#projects" class="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold rounded-2xl bg-primary text-primary-foreground transition-all duration-300 hover:shadow-[0_0_40px_oklch(0.78_0.15_195/0.35)] hover:-translate-y-0.5">
             Ver Productos
-            <svg
-              class="w-5 h-5 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
-            >
+            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
-          <a
-            href="#contact"
-            class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-foreground bg-secondary/10 border border-secondary/20 hover:bg-secondary/20 transition-all duration-200 backdrop-blur-sm"
-          >
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold rounded-2xl text-foreground border border-border/50 bg-white/[0.02] hover:bg-white/[0.05] hover:border-border transition-all duration-300 backdrop-blur-sm">
             Contáctanos
           </a>
         </div>
 
-        <!-- Tech Stack / Trust -->
-        <div class="mt-12 pt-8 border-t border-border/40">
-          <p class="text-sm text-muted-foreground mb-4 font-mono">
-            CONSTRUIDO CON
-          </p>
-          <div
-            class="flex flex-wrap justify-center lg:justify-start gap-6 opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
-          >
-            <span class="font-bold text-xl flex items-center gap-2"
-              ><span class="i-lucide-globe"></span> Next.js</span
-            >
-            <span class="font-bold text-xl flex items-center gap-2"
-              ><span class="i-lucide-code-2"></span> TypeScript</span
-            >
-            <span class="font-bold text-xl flex items-center gap-2"
-              ><span class="i-lucide-database"></span> Neon</span
-            >
-            <span class="font-bold text-xl flex items-center gap-2"
-              ><span class="i-lucide-palette"></span> TailwindCSS</span
-            >
+        <div class="hero-tech mt-14 pt-8 border-t border-border/30 opacity-0">
+          <p class="text-[0.65rem] font-mono font-medium text-muted-foreground/50 tracking-[0.25em] uppercase mb-5">Construido con</p>
+          <div class="tech-stack flex flex-wrap justify-center lg:justify-start gap-x-7 gap-y-3">
+            {[
+              { name: "Next.js", icon: "N" },
+              { name: "TypeScript", icon: "TS" },
+              { name: "Neon", icon: "▲" },
+              { name: "Tailwind", icon: "◆" },
+            ].map((tech) => (
+              <div class="tech-item flex items-center gap-2 opacity-0">
+                <span class="flex h-7 w-7 items-center justify-center rounded-md bg-white/5 border border-white/5 text-[0.6rem] font-mono font-bold text-primary/70 hover:text-primary hover:bg-primary/10 transition-all duration-300">
+                  {tech.icon}
+                </span>
+                <span class="text-sm font-medium text-muted-foreground/60">{tech.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      <!-- Visual Content -->
+      <!-- Terminal mockup -->
       <div class="lg:col-span-5 relative hidden lg:block">
-        <div
-          class="relative z-10 transform perspective-1000 hover:rotate-y-12 transition-transform duration-700 ease-out"
-        >
-          <!-- Abstract AI Interface Mockup -->
-          <div
-            class="relative bg-card border border-primary/20 rounded-xl shadow-xl overflow-hidden"
-          >
-            <!-- Window Controls -->
-            <div
-              class="bg-muted px-4 py-3 border-b border-border flex items-center space-x-2"
-            >
-              <div class="w-3 h-3 bg-red-500/80 rounded-full"></div>
-              <div class="w-3 h-3 bg-yellow-500/80 rounded-full"></div>
-              <div class="w-3 h-3 bg-green-500/80 rounded-full"></div>
-              <div class="ml-4 text-xs text-foreground/60 font-mono">
-                cognilab_products.ts
+        <div class="terminal-wrapper opacity-0">
+          <div class="relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-xl overflow-hidden shadow-2xl shadow-black/40">
+            <div class="flex items-center gap-2 px-4 py-3 border-b border-border/30 bg-white/[0.02]">
+              <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
               </div>
+              <span class="ml-3 text-xs font-mono text-muted-foreground/50">cognilab_products.ts</span>
             </div>
 
-            <!-- Code/Interface Content -->
-            <div
-              class="p-6 font-mono text-sm relative overflow-hidden min-h-[400px] bg-muted/30"
-            >
-
-              <div class="space-y-4">
-                <div class="flex items-center gap-2 text-green-400">
+            <div class="p-5 font-mono text-sm min-h-[380px]">
+              <div class="space-y-3">
+                <div class="flex items-center gap-2 text-primary">
                   <span class="animate-pulse">●</span>
-                  <span>System Online</span>
+                  <span class="text-xs">System Online</span>
                 </div>
-
-                <div class="space-y-2 text-muted-foreground">
-                  <p class="text-green-400">> VLink — agendamiento online</p>
-                  <p class="text-cyan-400">> Loki — gestión empresarial</p>
-                  <p class="text-yellow-400">> Hermes — POS + DIAN</p>
-                  <p class="text-primary">> Thor — sorteos gamificados</p>
+                <div class="space-y-2 text-muted-foreground/70 text-xs">
+                  <p><span class="text-green-400">&gt;</span> VLink — agendamiento online</p>
+                  <p><span class="text-cyan-400">&gt;</span> Loki — gestión empresarial</p>
+                  <p><span class="text-amber-400">&gt;</span> Hermes — POS + DIAN</p>
+                  <p><span class="text-primary">&gt;</span> Thor — sorteos gamificados</p>
                 </div>
-
-                <div
-                  class="mt-6 p-4 bg-primary/5 rounded border border-primary/20"
-                >
-                  <div
-                    class="flex justify-between text-xs text-muted-foreground mb-2"
-                  >
+                <div class="mt-4 p-3 rounded-lg bg-primary/5 border border-primary/10">
+                  <div class="flex justify-between text-xs text-muted-foreground/50 mb-2">
                     <span>Productos activos</span>
-                    <span>4</span>
+                    <span class="text-primary font-semibold">4</span>
                   </div>
-                  <div
-                    class="w-full bg-muted/30 h-1.5 rounded-full overflow-hidden"
-                  >
-                    <div class="h-full bg-primary w-full animate-pulse">
-                    </div>
+                  <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                    <div class="terminal-progress h-full bg-gradient-to-r from-primary to-secondary rounded-full w-0"></div>
                   </div>
                 </div>
-
-                <div class="grid grid-cols-2 gap-4 mt-4">
-                  <div
-                    class="p-3 bg-secondary/5 rounded border border-secondary/20"
-                  >
-                    <div class="text-xs text-secondary mb-1">
-                      Tech Stack
-                    </div>
-                    <div class="text-lg font-bold text-foreground">Next.js</div>
+                <div class="grid grid-cols-2 gap-3 mt-3">
+                  <div class="p-2.5 rounded-lg bg-white/[0.02] border border-border/30">
+                    <div class="text-[0.6rem] text-muted-foreground/40 uppercase tracking-wider mb-1">Stack</div>
+                    <div class="text-sm font-bold text-foreground">Next.js</div>
                   </div>
-                  <div class="p-3 bg-accent/5 rounded border border-accent/20">
-                    <div class="text-xs text-accent mb-1">Infra</div>
-                    <div class="text-lg font-bold text-foreground">Neon</div>
+                  <div class="p-2.5 rounded-lg bg-white/[0.02] border border-border/30">
+                    <div class="text-[0.6rem] text-muted-foreground/40 uppercase tracking-wider mb-1">Infra</div>
+                    <div class="text-sm font-bold text-foreground">Neon</div>
                   </div>
                 </div>
-
-                <!-- Floating Code Snippet -->
-                <div class="mt-6 text-xs text-blue-300 opacity-80">
-                  <div>
-                    <span class="text-purple-400">const</span> products = [<span class="text-yellow-300"> </span>
-                  </div>
-                  <div class="pl-4">
-                    &#123; name: <span class="text-green-400">"VLink"</span>, status: <span class="text-green-400">"live"</span> &#125;,
-                  </div>
-                  <div class="pl-4">
-                    &#123; name: <span class="text-green-400">"Loki"</span>, status: <span class="text-green-400">"live"</span> &#125;,
-                  </div>
-                  <div class="pl-4">
-                    &#123; name: <span class="text-green-400">"Hermes"</span>, status: <span class="text-green-400">"live"</span> &#125;,
-                  </div>
-                  <div class="pl-4">
-                    &#123; name: <span class="text-green-400">"Thor"</span>, status: <span class="text-green-400">"live"</span> &#125;
-                  </div>
+                <div class="mt-3 text-[0.7rem] text-muted-foreground/40 leading-relaxed font-mono">
+                  <div><span class="text-secondary">const</span> products = [</div>
+                  <div class="pl-3" set:html='&#123; name: <span class="text-primary">"VLink"</span>, status: <span class="text-green-400">"live"</span> &#125;,'></div>
+                  <div class="pl-3" set:html='&#123; name: <span class="text-primary">"Loki"</span>, status: <span class="text-green-400">"live"</span> &#125;,'></div>
+                  <div class="pl-3" set:html='&#123; name: <span class="text-primary">"Hermes"</span>, status: <span class="text-green-400">"live"</span> &#125;,'></div>
+                  <div class="pl-3" set:html='&#123; name: <span class="text-primary">"Thor"</span>, status: <span class="text-green-400">"live"</span> &#125;,'></div>
                   <div>];</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Floating Elements behind -->
-        <div
-          class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-xl animate-pulse"
-        >
-        </div>
-        <div
-          class="absolute -bottom-10 -left-10 w-32 h-32 bg-secondary/20 rounded-full blur-xl animate-pulse delay-1000"
-        >
+          <div class="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl -z-10"></div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0">
+    <span class="text-[0.6rem] font-mono text-muted-foreground/40 tracking-[0.3em] uppercase">Scroll</span>
+    <div class="w-5 h-8 rounded-full border border-border/30 flex justify-center pt-1.5">
+      <div class="w-1 h-2 rounded-full bg-primary/50 animate-bounce"></div>
+    </div>
+  </div>
 </section>
 
-<style>
-  .bg-grid-black\/\[0\.02\] {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-  }
+<script>
+  import { gsap } from "gsap";
 
-  @keyframes blob {
-    0% {
-      transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-      transform: translate(30px, -50px) scale(1.1);
-    }
-    66% {
-      transform: translate(-20px, 20px) scale(0.9);
-    }
-    100% {
-      transform: translate(0px, 0px) scale(1);
-    }
-  }
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  .animate-blob {
-    animation: blob 7s infinite;
-  }
+  if (!prefersReducedMotion) {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
+    tl.to(".hero-badge", { opacity: 1, y: 0, duration: 0.6 }, 0.2)
+      .to(".hero-line span", { y: 0, duration: 0.9, stagger: 0.12 }, 0.3)
+      .to(".hero-sub", { opacity: 1, y: 0, duration: 0.7 }, 0.8)
+      .to(".hero-ctas", { opacity: 1, y: 0, duration: 0.6 }, 1.0)
+      .to(".hero-tech", { opacity: 1, y: 0, duration: 0.6 }, 1.1)
+      .to(".tech-item", { opacity: 1, y: 0, duration: 0.4, stagger: 0.08 }, 1.2)
+      .to(".terminal-wrapper", { opacity: 1, x: 0, duration: 1, ease: "power2.out" }, 0.5)
+      .to(".terminal-progress", { width: "100%", duration: 1.5, ease: "power2.inOut" }, 1.2)
+      .to(".scroll-indicator", { opacity: 1, duration: 0.5 }, 1.8);
 
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
+    // Set initial states
+    gsap.set(".hero-line span", { yPercent: 100 });
+    gsap.set(".hero-sub", { y: 20 });
+    gsap.set(".hero-ctas", { y: 20 });
+    gsap.set(".hero-tech", { y: 20 });
+    gsap.set(".tech-item", { y: 15 });
+    gsap.set(".terminal-wrapper", { x: 40 });
 
-  .perspective-1000 {
-    perspective: 1000px;
+    // Floating orbs continuous animation
+    gsap.to(".orb", {
+      y: "random(-40, 40)",
+      x: "random(-30, 30)",
+      scale: "random(0.95, 1.05)",
+      duration: "random(6, 10)",
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: { each: 1.5, from: "random" },
+    });
   }
-
-  @keyframes gradient-x {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  .animate-gradient-x {
-    background-size: 200% 200%;
-    animation: gradient-x 4s ease infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .animate-blob {
-      animation: none;
-    }
-    .animate-gradient-x {
-      animation: none;
-    }
-  }
-</style>
+</script>

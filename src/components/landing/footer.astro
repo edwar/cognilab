@@ -1,164 +1,88 @@
 ---
-// src/components/Footer.astro
 import { Icon } from "astro-icon/components";
 ---
 
-<footer class="bg-background border-t border-border/40 py-12 sm:py-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div
-      class="flex flex-col sm:flex-row justify-between items-center pb-8 border-b border-border/40"
-    >
-      <a href="/" class="flex items-center gap-2">
-        <div
-          class="relative flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 border border-primary/20"
-        >
-          <span class="text-primary font-bold text-xl">C</span>
+<footer class="relative bg-background border-t border-border/20 py-12 sm:py-16 overflow-hidden">
+  <div class="absolute inset-0 bg-grid opacity-20" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="flex flex-col sm:flex-row justify-between items-center pb-8 border-b border-border/20">
+      <a href="/" class="group flex items-center gap-3">
+        <div class="relative flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+          <span class="font-display text-primary font-bold text-lg">C</span>
+          <div class="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-accent animate-pulse"></div>
         </div>
         <div class="flex flex-col">
-          <span
-            class="font-bold text-xl tracking-tight text-foreground leading-none"
-            >CogniLab</span
-          >
-          <span
-            class="text-[0.6rem] uppercase tracking-widest text-muted-foreground font-semibold leading-none"
-            >SaaS Studio</span
-          >
+          <span class="font-display font-bold text-lg tracking-tight text-foreground leading-none">CogniLab</span>
+          <span class="text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground/50 font-medium leading-none mt-0.5">SaaS Studio</span>
         </div>
       </a>
 
-      <div class="flex space-x-4 mt-6 sm:mt-0">
-        <a
-          href="#"
-          aria-label="Github"
-          class="text-muted-foreground hover:text-primary transition-colors duration-300"
-        >
-          <Icon name="lucide:github" class="h-6 w-6" />
-        </a>
-        <a
-          href="#"
-          aria-label="Twitter"
-          class="text-muted-foreground hover:text-primary transition-colors duration-300"
-        >
-          <Icon name="lucide:x" class="h-6 w-6" />
-        </a>
-        <a
-          href="#"
-          aria-label="LinkedIn"
-          class="text-muted-foreground hover:text-primary transition-colors duration-300"
-        >
-          <Icon name="lucide:linkedin" class="h-6 w-6" />
-        </a>
-        <a
-          href="mailto:edwaramayadiaz@gmail.com"
-          aria-label="Email"
-          class="text-muted-foreground hover:text-primary transition-colors duration-300"
-        >
-          <Icon name="lucide:mail" class="h-6 w-6" />
-        </a>
+      <div class="flex space-x-3 mt-6 sm:mt-0">
+        {[
+          { label: "Github", icon: "lucide:github", href: "#" },
+          { label: "Twitter", icon: "lucide:x", href: "#" },
+          { label: "LinkedIn", icon: "lucide:linkedin", href: "#" },
+          { label: "Email", icon: "lucide:mail", href: "mailto:edwaramayadiaz@gmail.com" },
+        ].map((social) => (
+          <a
+            href={social.href}
+            aria-label={social.label}
+            class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground/50 hover:text-primary hover:bg-primary/5 border border-transparent hover:border-primary/10 transition-all duration-300"
+          >
+            <Icon name={social.icon} class="h-4 w-4" />
+          </a>
+        ))}
       </div>
     </div>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 mt-12 text-sm">
       <div>
-        <h3 class="font-semibold text-foreground uppercase tracking-wider mb-4">
-          Productos
-        </h3>
-        <ul role="list" class="space-y-2">
-          <li>
-            <a
-              href="https://vlink.cognilab.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >VLink — Agendamiento</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://loki.cognilab.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >Loki — Gestión</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://hermes.cognilab.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >Hermes — POS</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://thor.cognilab.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >Thor — Sorteos</a
-            >
-          </li>
+        <h3 class="font-display font-semibold text-foreground text-xs uppercase tracking-[0.15em] mb-4">Productos</h3>
+        <ul class="space-y-2.5">
+          {[
+            { name: "VLink", href: "https://vlink.cognilab.dev" },
+            { name: "Loki", href: "https://loki.cognilab.dev" },
+            { name: "Hermes", href: "https://hermes.cognilab.dev" },
+            { name: "Thor", href: "https://thor.cognilab.dev" },
+          ].map((item) => (
+            <li>
+              <a href={item.href} target="_blank" rel="noopener noreferrer" class="text-muted-foreground/50 hover:text-primary text-xs transition-colors duration-300">
+                {item.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
       <div>
-        <h3 class="font-semibold text-foreground uppercase tracking-wider mb-4">
-          Compañía
-        </h3>
-        <ul role="list" class="space-y-2">
-          <li>
-            <a
-              href="/"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >Inicio</a
-            >
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >Proyectos</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >Contacto</a
-            >
-          </li>
+        <h3 class="font-display font-semibold text-foreground text-xs uppercase tracking-[0.15em] mb-4">Compañía</h3>
+        <ul class="space-y-2.5">
+          {[
+            { name: "Inicio", href: "/" },
+            { name: "Proyectos", href: "#projects" },
+            { name: "Contacto", href: "#contact" },
+          ].map((item) => (
+            <li>
+              <a href={item.href} class="text-muted-foreground/50 hover:text-primary text-xs transition-colors duration-300">
+                {item.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
       <div>
-        <h3 class="font-semibold text-foreground uppercase tracking-wider mb-4">
-          Legal
-        </h3>
-        <ul role="list" class="space-y-2">
-          <li>
-            <a
-              href="#"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >Privacidad</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >Términos</a
-            >
-          </li>
+        <h3 class="font-display font-semibold text-foreground text-xs uppercase tracking-[0.15em] mb-4">Legal</h3>
+        <ul class="space-y-2.5">
+          <li><a href="#" class="text-muted-foreground/50 hover:text-primary text-xs transition-colors duration-300">Privacidad</a></li>
+          <li><a href="#" class="text-muted-foreground/50 hover:text-primary text-xs transition-colors duration-300">Términos</a></li>
         </ul>
       </div>
     </div>
 
-    <div
-      class="mt-12 pt-8 border-t border-border/40 text-center text-sm text-muted-foreground"
-    >
-      <p>
+    <div class="mt-12 pt-8 border-t border-border/20 text-center">
+      <p class="text-xs font-mono text-muted-foreground/30">
         &copy; {new Date().getFullYear()} CogniLab. Todos los derechos reservados.
       </p>
     </div>

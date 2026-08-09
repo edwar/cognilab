@@ -1,128 +1,78 @@
 ---
-// Navbar.astro
+// Navbar.astro — Glassmorphic sticky nav with scroll-aware opacity
 ---
 
 <header
   role="banner"
-  class="sticky top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm"
+  class="navbar-glass fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500"
 >
   <nav role="navigation" aria-label="Navegación principal">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between lg:h-20">
         <!-- Logo -->
-        <div class="flex-shrink-0">
-          <a
-            href="/#home"
-            class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
-            aria-label="Ir al inicio - CogniLab AI Agency"
-          >
-            <div
-              class="relative flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 border border-primary/20"
-            >
-              <span class="text-primary font-bold text-xl">C</span>
-              <div
-                class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-accent animate-pulse"
-              >
-              </div>
-            </div>
-            <div class="flex flex-col">
-              <span
-                class="font-bold text-xl tracking-tight text-foreground leading-none"
-                >CogniLab</span
-              >
-              <span
-                class="text-[0.6rem] uppercase tracking-widest text-muted-foreground font-semibold leading-none"
-                >SaaS Studio</span
-              >
-            </div>
-          </a>
-        </div>
+        <a
+          href="/#home"
+          class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-xl"
+          aria-label="Ir al inicio — CogniLab"
+        >
+          <div class="relative flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
+            <span class="font-display text-primary font-bold text-lg">C</span>
+            <div class="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-accent animate-pulse"></div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-bold text-lg tracking-tight text-foreground leading-none">
+              CogniLab
+            </span>
+            <span class="text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground/70 font-medium leading-none mt-0.5">
+              SaaS Studio
+            </span>
+          </div>
+        </a>
 
         <!-- Desktop Navigation -->
         <div class="hidden lg:block" role="menubar">
-          <ul class="ml-10 flex items-baseline space-x-8" role="none">
-            <li role="none">
-              <a
-                href="#services"
-                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
-                role="menuitem"
-              >
-                Productos
-              </a>
-            </li>
-            <li role="none">
-              <a
-                href="#about"
-                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
-                role="menuitem"
-              >
-                Nosotros
-              </a>
-            </li>
-            <li role="none">
-              <a
-                href="#projects"
-                class="text-muted-foreground hover:text-primary focus:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
-                role="menuitem"
-              >
-                Proyectos
-              </a>
-            </li>
-            <li role="none">
+          <ul class="ml-12 flex items-center gap-1" role="none">
+            {["Productos", "Nosotros", "Proyectos"].map((item) => (
+              <li role="none">
+                <a
+                  href={`#${item === "Productos" ? "services" : item === "Nosotros" ? "about" : "projects"}`}
+                  class="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  role="menuitem"
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+            <li role="none" class="ml-4">
               <a
                 href="#contact"
-                class="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-glow"
+                class="relative inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background shadow-[0_0_20px_oklch(0.78_0.15_195/0.25)] hover:shadow-[0_0_30px_oklch(0.78_0.15_195/0.4)]"
                 role="menuitem"
               >
                 Contacto
+                <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </a>
             </li>
           </ul>
         </div>
 
         <!-- Mobile menu button -->
-        <div class="lg:hidden">
-          <button
-            type="button"
-            class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-accent focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary transition-colors duration-200 min-h-[44px] min-w-[44px] touch-manipulation"
-            aria-controls="mobile-menu"
-            aria-expanded="false"
-            aria-haspopup="true"
-            aria-label="Abrir menú de navegación"
-          >
-            <span class="sr-only">Abrir menú principal</span>
-            <!-- Hamburger icon -->
-            <svg
-              class="hamburger-icon block h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-            <!-- Close icon -->
-            <svg
-              class="close-icon hidden h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
+        <button
+          type="button"
+          class="mobile-menu-button lg:hidden relative flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Abrir menú de navegación"
+        >
+          <span class="sr-only">Abrir menú principal</span>
+          <div class="flex flex-col gap-1.5 w-5">
+            <span class="hamburger-line-1 block h-0.5 w-full bg-current rounded-full transition-all duration-300 origin-center"></span>
+            <span class="hamburger-line-2 block h-0.5 w-3/4 bg-current rounded-full transition-all duration-300"></span>
+            <span class="hamburger-line-3 block h-0.5 w-1/2 bg-current rounded-full transition-all duration-300 origin-center"></span>
+          </div>
+        </button>
       </div>
     </div>
 
@@ -134,36 +84,23 @@
       aria-orientation="vertical"
       aria-labelledby="mobile-menu-button"
     >
-      <div
-        class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 backdrop-blur border-t shadow-lg"
-      >
-        <a
-          href="#services"
-          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent flex px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 min-h-[44px] items-center touch-manipulation"
-          role="menuitem"
-        >
+      <div class="mx-4 mb-4 p-3 rounded-2xl bg-card/80 backdrop-blur-xl border border-border/50 shadow-2xl">
+        <a href="#services" class="mobile-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all duration-200 min-h-[44px]" role="menuitem">
+          <svg class="w-5 h-5 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
           Productos
         </a>
-        <a
-          href="#about"
-          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent flex px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 min-h-[44px] items-center touch-manipulation"
-          role="menuitem"
-        >
+        <a href="#about" class="mobile-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all duration-200 min-h-[44px]" role="menuitem">
+          <svg class="w-5 h-5 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           Nosotros
         </a>
-        <a
-          href="#projects"
-          class="text-muted-foreground hover:text-primary hover:bg-accent focus:text-primary focus:bg-accent flex px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 min-h-[44px] items-center touch-manipulation"
-          role="menuitem"
-        >
+        <a href="#projects" class="mobile-link flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all duration-200 min-h-[44px]" role="menuitem">
+          <svg class="w-5 h-5 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           Proyectos
         </a>
-        <a
-          href="#contact"
-          class="text-primary font-bold hover:bg-accent focus:bg-accent flex px-3 py-3 rounded-md text-base transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 min-h-[44px] items-center touch-manipulation"
-          role="menuitem"
-        >
+        <div class="my-2 border-t border-border/30"></div>
+        <a href="#contact" class="mobile-link flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 min-h-[44px]" role="menuitem">
           Contacto
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
     </div>
@@ -171,233 +108,105 @@
 </header>
 
 <script>
-  // Mobile menu toggle functionality
-  document.addEventListener("DOMContentLoaded", function () {
-    const mobileMenuButton = document.querySelector(
-      ".mobile-menu-button",
-    ) as HTMLButtonElement;
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector(".navbar-glass") as HTMLElement;
+    const mobileMenuButton = document.querySelector(".mobile-menu-button") as HTMLButtonElement;
     const mobileMenu = document.querySelector(".mobile-menu") as HTMLElement;
-    const hamburgerIcon = document.querySelector(
-      ".hamburger-icon",
-    ) as HTMLElement;
-    const closeIcon = document.querySelector(".close-icon") as HTMLElement;
 
+    // Scroll-aware navbar
+    let lastScroll = 0;
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 50) {
+        navbar?.classList.add("navbar-scrolled");
+      } else {
+        navbar?.classList.remove("navbar-scrolled");
+      }
+      lastScroll = scrollY;
+    }, { passive: true });
+
+    // Mobile menu toggle
     if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener("click", function () {
-        const isExpanded =
-          mobileMenuButton.getAttribute("aria-expanded") === "true";
-
-        // Toggle menu visibility
+      mobileMenuButton.addEventListener("click", () => {
+        const isExpanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
         mobileMenu.classList.toggle("hidden");
+        mobileMenuButton.setAttribute("aria-expanded", (!isExpanded).toString());
 
-        // Toggle icons
-        hamburgerIcon?.classList.toggle("hidden");
-        closeIcon?.classList.toggle("hidden");
-
-        // Update aria-expanded and aria-label
-        mobileMenuButton.setAttribute(
-          "aria-expanded",
-          (!isExpanded).toString(),
-        );
-        mobileMenuButton.setAttribute(
-          "aria-label",
-          isExpanded ? "Abrir menú de navegación" : "Cerrar menú de navegación",
-        );
-
-        // Focus management
+        // Animate hamburger to X
+        const lines = mobileMenuButton.querySelectorAll("span[class*='hamburger-line']");
         if (!isExpanded) {
-          // Menu is opening - focus first menu item
-          setTimeout(() => {
-            const firstMenuItem = mobileMenu.querySelector("a");
-            firstMenuItem?.focus();
-          }, 100);
-        }
-      });
-
-      // Keyboard navigation for mobile menu
-      mobileMenuButton.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          mobileMenuButton.click();
+          lines[0]?.classList.add("rotate-45", "translate-y-[4px]");
+          lines[0]?.classList.remove("w-full");
+          lines[1]?.classList.add("opacity-0", "translate-x-2");
+          lines[2]?.classList.add("-rotate-45", "-translate-y-[4px]");
+          lines[2]?.classList.add("w-full");
+          lines[2]?.classList.remove("w-1/2");
+        } else {
+          lines[0]?.classList.remove("rotate-45", "translate-y-[4px]");
+          lines[0]?.classList.add("w-full");
+          lines[1]?.classList.remove("opacity-0", "translate-x-2");
+          lines[2]?.classList.remove("-rotate-45", "-translate-y-[4px]");
+          lines[2]?.classList.add("w-full");
+          lines[2]?.classList.remove("w-1/2");
         }
       });
     }
 
-    // Close mobile menu when clicking on links
-    const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
-    mobileMenuLinks.forEach((link) => {
+    // Close mobile menu on link click
+    document.querySelectorAll(".mobile-link").forEach((link) => {
       link.addEventListener("click", () => {
-        closeMobileMenu();
+        mobileMenu?.classList.add("hidden");
+        mobileMenuButton?.setAttribute("aria-expanded", "false");
+        const lines = mobileMenuButton?.querySelectorAll("span[class*='hamburger-line']");
+        lines?.[0]?.classList.remove("rotate-45", "translate-y-[4px]");
+        lines?.[0]?.classList.add("w-full");
+        lines?.[1]?.classList.remove("opacity-0", "translate-x-2");
+        lines?.[2]?.classList.remove("-rotate-45", "-translate-y-[4px]");
+        lines?.[2]?.classList.add("w-full");
+        lines?.[2]?.classList.remove("w-1/2");
       });
     });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener("click", function (event) {
-      const target = event.target as Element;
-      if (
-        mobileMenu &&
-        !mobileMenu.contains(target) &&
-        !mobileMenuButton?.contains(target) &&
-        !mobileMenu.classList.contains("hidden")
-      ) {
-        closeMobileMenu();
-      }
-    });
-
-    // Close mobile menu with Escape key
-    document.addEventListener("keydown", function (event) {
-      if (
-        event.key === "Escape" &&
-        mobileMenu &&
-        !mobileMenu.classList.contains("hidden")
-      ) {
-        closeMobileMenu();
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenu && !mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+        mobileMenuButton?.setAttribute("aria-expanded", "false");
         mobileMenuButton?.focus();
       }
     });
-
-    // Trap focus within mobile menu when open
-    mobileMenu?.addEventListener("keydown", function (e) {
-      if (e.key === "Tab") {
-        const focusableElements = mobileMenu.querySelectorAll("a[href]");
-        const firstFocusable = focusableElements[0] as HTMLElement;
-        const lastFocusable = focusableElements[
-          focusableElements.length - 1
-        ] as HTMLElement;
-
-        if (e.shiftKey && document.activeElement === firstFocusable) {
-          e.preventDefault();
-          lastFocusable.focus();
-        } else if (!e.shiftKey && document.activeElement === lastFocusable) {
-          e.preventDefault();
-          firstFocusable.focus();
-        }
-      }
-    });
-
-    function closeMobileMenu() {
-      mobileMenu?.classList.add("hidden");
-      hamburgerIcon?.classList.remove("hidden");
-      closeIcon?.classList.add("hidden");
-      mobileMenuButton?.setAttribute("aria-expanded", "false");
-      mobileMenuButton?.setAttribute("aria-label", "Abrir menú de navegación");
-    }
-
-    // Skip to main content functionality
-    const skipLink = document.createElement("a");
-    skipLink.href = "#main-content";
-    skipLink.textContent = "Saltar al contenido principal";
-    skipLink.className =
-      "sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-primary text-primary-foreground px-4 py-2 z-[100] focus:outline-none focus:ring-2 focus:ring-primary-foreground";
-    document.body.insertBefore(skipLink, document.body.firstChild);
   });
 </script>
 
 <style>
-  /* Screen reader only class */
   .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
   }
 
-  .focus\:not-sr-only:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0.5rem 1rem;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
+  .navbar-glass {
+    background: oklch(0.09 0.015 260 / 0.6);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border-bottom: 1px solid oklch(1 0 0 / 0.05);
   }
 
-  /* Smooth transitions for mobile menu */
+  .navbar-scrolled {
+    background: oklch(0.09 0.015 260 / 0.85);
+    border-bottom-color: oklch(1 0 0 / 0.08);
+    box-shadow: 0 4px 30px oklch(0 0 0 / 0.3);
+  }
+
   .mobile-menu {
-    animation: slideDown 0.2s ease-out;
+    animation: mobileMenuIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  @keyframes mobileMenuIn {
+    from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  /* Reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
-    .mobile-menu {
-      animation: none;
-    }
-
-    * {
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-    }
-  }
-
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .mobile-menu {
-      border-width: 2px;
-    }
-  }
-
-  /* Mobile zoom control for navbar */
-  @media screen and (max-width: 768px) {
-    /* Ensure navbar doesn't cause zoom issues */
-    .mobile-menu-button {
-      min-height: 44px;
-      min-width: 44px;
-      touch-action: manipulation;
-    }
-
-    /* Prevent text selection in navbar */
-    .mobile-menu a {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    /* Improve touch targets */
-    .mobile-menu a {
-      padding: 12px 16px;
-      margin: 2px 0;
-      border-radius: 8px;
-    }
-
-    /* Smooth scrolling for mobile menu */
-    .mobile-menu {
-      scroll-behavior: smooth;
-      max-height: calc(100vh - 80px);
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-
-  /* Prevent zoom on button interactions */
-  button,
-  .mobile-menu-button {
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Ensure proper spacing on mobile */
-  @media screen and (max-width: 640px) {
-    .mobile-menu {
-      padding: 1rem;
-    }
+    .mobile-menu { animation: none; }
   }
 </style>
