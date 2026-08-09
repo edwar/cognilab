@@ -28,7 +28,7 @@ import { Icon } from "astro-icon/components";
           <a
             href={social.href}
             aria-label={social.label}
-            class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground/50 hover:text-primary hover:bg-primary/5 border border-transparent hover:border-primary/10 transition-all duration-300"
+            class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 border border-transparent hover:border-primary/10 transition-all duration-300"
           >
             <Icon name={social.icon} class="h-4 w-4" />
           </a>
@@ -47,7 +47,7 @@ import { Icon } from "astro-icon/components";
             { name: "Thor", href: "https://thor.cognilab.dev" },
           ].map((item) => (
             <li>
-              <a href={item.href} target="_blank" rel="noopener noreferrer" class="text-muted-foreground/50 hover:text-primary text-xs transition-colors duration-300">
+              <a href={item.href} target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-primary text-xs transition-colors duration-300">
                 {item.name}
               </a>
             </li>
@@ -64,7 +64,7 @@ import { Icon } from "astro-icon/components";
             { name: "Contacto", href: "#contact" },
           ].map((item) => (
             <li>
-              <a href={item.href} class="text-muted-foreground/50 hover:text-primary text-xs transition-colors duration-300">
+              <a href={item.href} class="text-muted-foreground hover:text-primary text-xs transition-colors duration-300">
                 {item.name}
               </a>
             </li>
@@ -75,14 +75,14 @@ import { Icon } from "astro-icon/components";
       <div>
         <h3 class="font-display font-semibold text-foreground text-xs uppercase tracking-[0.15em] mb-4">Legal</h3>
         <ul class="space-y-2.5">
-          <li><a href="#" class="text-muted-foreground/50 hover:text-primary text-xs transition-colors duration-300">Privacidad</a></li>
-          <li><a href="#" class="text-muted-foreground/50 hover:text-primary text-xs transition-colors duration-300">Términos</a></li>
+          <li><a href="#" class="text-muted-foreground hover:text-primary text-xs transition-colors duration-300">Privacidad</a></li>
+          <li><a href="#" class="text-muted-foreground hover:text-primary text-xs transition-colors duration-300">Términos</a></li>
         </ul>
       </div>
     </div>
 
     <div class="mt-12 pt-8 border-t border-border/20 text-center">
-      <p class="text-xs font-mono text-muted-foreground/30">
+      <p class="text-xs font-mono text-muted-foreground/60">
         &copy; {new Date().getFullYear()} CogniLab. Todos los derechos reservados.
       </p>
     </div>
